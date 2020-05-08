@@ -1,0 +1,10 @@
+{
+    "Name":"the only board",
+    "Dimension": [1,1],
+    "Tiles": [2],
+    "Orbs": [],
+    "Start": [{
+        "Name": "bear",
+        "Coord": [0,0]
+    }]
+}

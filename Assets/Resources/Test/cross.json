@@ -1,0 +1,19 @@
+{
+    "Name": "the cross",
+    "Dimension": [3,4],
+    "Start": [
+        {
+            "Name": "bear",
+            "Coord": [1,0]
+        }
+    ],
+    "Tiles": [
+        0, 2, 0,
+        2, 2, 2,
+        0, 2, 0,
+        0, 2, 0
+    ],
+    "Orbs": [{
+        "Coord":[0,1]
+    }]
+}
