@@ -15,5 +15,8 @@
     ],
     "Orbs": [{
         "Coord":[0,1]
-    }]
+    }],
+    "Messages": [
+        "Good job"
+    ]
 }

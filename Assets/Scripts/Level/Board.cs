@@ -61,6 +61,16 @@ public class Board : MonoBehaviour
     public GameObject player;
 
     /// <summary>
+    /// List of messages read from json
+    /// </summary>
+    public string[] messages;
+
+    /// <summary>
+    /// Used to track which message to display next
+    /// </summary>
+    private int _messageIndex = 0;
+
+    /// <summary>
     /// Event of the player touching an orb
     /// </summary>
     public UnityEvent touchOrb;
@@ -100,6 +110,8 @@ public class Board : MonoBehaviour
     /// <param name="json">Json data of the level</param>
     public void SetUp(JSONLevel json)
     {
+        this.messages = json.Messages;
+
         SetUpTiles(json);
 
         SetUpOrbs(json);
@@ -167,9 +179,13 @@ public class Board : MonoBehaviour
         orbs = new GameObject[json.Orbs.Length];
         for (int i = 0; i < orbs.Length; i++)
         {
+            // Get parent tile
+            var orb = json.Orbs[i];
+            var parent = tiles[orb.Coord[0], orb.Coord[1]].transform;
+
             orbs[i] = GameObject.Instantiate(orbPrefab,
-                new Vector3(json.Orbs[i].Coord[0], boardDimension[1] - json.Orbs[i].Coord[1] - 1, -1),
-                Quaternion.Euler(-90, 0, 0), this.transform);
+                new Vector3(orb.Coord[0], boardDimension[1] - orb.Coord[1] - 1, -1),
+                Quaternion.Euler(-90, 0, 0), parent);
         }
     }
 
@@ -253,9 +269,10 @@ public class Board : MonoBehaviour
     /// <summary>
     /// For testing purposes
     /// </summary>
-    public void OrbTouchDebug()
+    public void DisplayOrbMessage()
     {
-        Debug.Log("Touched an orb");
+        Debug.Log(this.messages[_messageIndex]);
+        _messageIndex++;
     }
 
     /// <summary>
@@ -313,6 +330,19 @@ public class Board : MonoBehaviour
             else return false;
         }
         return true;
+    }
+
+    /// <summary>
+    /// Converts the given coordinate into logical coordinate of the board
+    /// </summary>
+    /// <param name="worldCoordinate">World coordinate to convert from</param>
+    /// <returns>Converted logical coordinate</returns>
+    public Vector2Int ToLogicalCoordinates(Vector3 worldCoordinate)
+    {
+        return new Vector2Int(
+            Mathf.RoundToInt(worldCoordinate.x),
+            Mathf.RoundToInt(this.boardDimension[1] - 1 - worldCoordinate.y)
+        );
     }
 
     /// <summary>

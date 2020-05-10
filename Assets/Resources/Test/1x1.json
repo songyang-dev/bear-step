@@ -6,5 +6,8 @@
     "Start": [{
         "Name": "bear",
         "Coord": [0,0]
-    }]
+    }],
+    "Messages": [
+        
+    ]
 }

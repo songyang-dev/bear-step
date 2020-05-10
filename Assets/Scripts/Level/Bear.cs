@@ -72,10 +72,7 @@ public class Bear : MonoBehaviour
     /// </summary>
     private void UpdateBoardPosition()
     {
-        logicalPosition.Set(
-            Mathf.RoundToInt(this.transform.position.x),
-            Mathf.RoundToInt(board.boardDimension[1] - 1 - this.transform.position.y)
-        );
+        logicalPosition = board.ToLogicalCoordinates(this.transform.position);
     }
 
     /// <summary>

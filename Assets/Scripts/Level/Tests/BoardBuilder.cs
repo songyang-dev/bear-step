@@ -67,7 +67,7 @@ namespace Tests
             var boardScript = board.GetComponent<Board>();
 
             Assert.AreEqual(12,boardScript.tiles.Length,"Invalid number of tiles");
-            Assert.AreEqual(8,board.transform.childCount, "Invalid number of children");
+            Assert.AreEqual(7,board.transform.childCount, "Invalid number of children");
             Assert.AreEqual(1,boardScript.orbs.Length, "Invalid number of orbs");
             Assert.AreEqual(1,boardScript.characters.Length, "Invalid number of characters");
 
@@ -89,7 +89,7 @@ namespace Tests
             var boardScript = board.GetComponent<Board>();
 
             Assert.AreEqual(28,boardScript.tiles.Length,"Invalid number of tiles");
-            Assert.AreEqual(24,board.transform.childCount, "Invalid number of children");
+            Assert.AreEqual(21,board.transform.childCount, "Invalid number of children");
             Assert.AreEqual(3,boardScript.orbs.Length, "Invalid number of orbs");
             Assert.AreEqual(1,boardScript.characters.Length, "Invalid number of characters");
 

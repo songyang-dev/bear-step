@@ -23,7 +23,7 @@ namespace Tests
             var speed = bear.moveDistance/bear.moveDuration;
 
             foreach (var direction in new List<Direction> {
-                Direction.East, Direction.West, Direction.South, Direction.North 
+                Direction.East, Direction.South, Direction.West, Direction.South 
                 })
             {
                 initial = bear.transform.position;
@@ -52,9 +52,8 @@ namespace Tests
 
             var correctCoordinates = new Dictionary<Direction, Vector2Int> {
                 {Direction.South, new Vector2Int(0,1)},
-                {Direction.North, new Vector2Int(0,-1)}, 
                 {Direction.East, new Vector2Int(1,0)},
-                {Direction.West, new Vector2Int(-1,0)}
+                {Direction.North, new Vector2Int(0,-1)}
             };
 
             foreach (var direction in correctCoordinates.Keys)

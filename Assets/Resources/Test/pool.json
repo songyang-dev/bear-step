@@ -22,5 +22,10 @@
     {
         "Coord":[0,3]
     }
+    ],
+    "Messages": [
+        "First orb picked",
+        "Second orb picked",
+        "Third orb picked"
     ]
 }

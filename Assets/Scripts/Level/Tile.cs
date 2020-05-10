@@ -40,15 +40,27 @@ public class Tile : MonoBehaviour
         if (state == this.State) throw new System.Exception($"Tile state did not change from {state}");
         State = state;
 
+        Vector3 change = new Vector3();
         // physically lower the tile
-        if (state == TileState.Down)
+        switch (state)
         {
-            _movingCoroutine = gameManager.Move(moveDuration, moveDistance, this.transform.position + new Vector3(0, 0, 1),
-                this.transform, () =>
-                {
-                    State = TileState.Down;
-                }
-            );
+            case TileState.Down:
+                change.z = 1;
+                break;
+
+            case TileState.Up:
+                change.z = -1;
+                break;
+
+            default:
+                throw new System.Exception($"Unknown tile state to be changed to: {state}");
         }
+
+        _movingCoroutine = gameManager.Move(moveDuration, moveDistance, this.transform.position + change,
+            this.transform, () =>
+            {
+                State = state;
+            }
+        );
     }
 }

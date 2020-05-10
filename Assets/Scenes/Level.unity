@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2845cd0cb96ab1e43810d89c40bdcedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1211441081}
   boardDimension: 
   orbs: []
   characters: []
@@ -160,11 +161,12 @@ MonoBehaviour:
   bearPrefab: {fileID: 3560112177816658897, guid: 7547c7075f9c24843a1f7088bffceda6,
     type: 3}
   player: {fileID: 0}
+  messages: []
   touchOrb:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 419214398}
-        m_MethodName: OrbTouchDebug
+        m_MethodName: DisplayOrbMessage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -174,7 +176,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  gameManager: {fileID: 1211441081}
 --- !u!4 &419214399
 Transform:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: b4fae4bd9c947b84d879eaa114119630,
+  m_Actions: {fileID: -944628639613478452, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}

@@ -160,6 +160,11 @@ public class JSONLevel
     public JSONOrb[] Orbs;
 
     /// <summary>
+    /// List of messages to display when an orb is collected
+    /// </summary>
+    public string[] Messages;
+
+    /// <summary>
     /// Starting position of the board, if any
     /// </summary>
     public JSONStart[] Start;
@@ -195,6 +200,11 @@ public class JSONLevel
             if (item < 0 || item > 2)
                 throw new System.ArgumentException($"Tile integer is {item} but must be 0, 1 or 2");
         }
+
+        // Verify the messages array
+        if (Messages == null) throw new System.ArgumentException("No messages field is given");
+        if (Messages.Length > Orbs.Length)
+            throw new System.ArgumentException($"There are more messages than orbs: {Messages.Length} > {Orbs.Length}");
 
         // Verify the orb locations
         if (Orbs != null)
