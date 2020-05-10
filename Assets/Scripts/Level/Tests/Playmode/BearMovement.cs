@@ -23,14 +23,14 @@ namespace Tests
             var speed = bear.moveDistance/bear.moveDuration;
 
             foreach (var direction in new List<Direction> {
-                Direction.East, Direction.West, Direction.North, Direction.South 
+                Direction.East, Direction.West, Direction.South, Direction.North 
                 })
             {
                 initial = bear.transform.position;
 
                 bear.Move(direction);
                 yield return null;
-                Assert.AreNotEqual(bear.transform.position, initial, "Bear did not move");
+                Assert.AreNotEqual(bear.transform.position, initial, $"Bear did not move when direction is {direction}");
 
                 yield return new WaitForSeconds(speed);
                 Assert.AreEqual(initial + bear.directions[direction], bear.transform.position, $"Bear did not arrive toward {direction}");
@@ -59,11 +59,11 @@ namespace Tests
 
             foreach (var direction in correctCoordinates.Keys)
             {
-                initial = bear.boardPosition;
+                initial = bear.logicalPosition;
 
                 bear.Move(direction);
                 yield return new WaitForSeconds(speed);
-                Assert.AreEqual(initial + correctCoordinates[direction], bear.boardPosition, 
+                Assert.AreEqual(initial + correctCoordinates[direction], bear.logicalPosition, 
                     $"Bear did not arrive toward {direction}");
             }
         }

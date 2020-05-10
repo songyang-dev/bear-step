@@ -54,6 +54,7 @@ namespace Tests
             gameManager.test = true;
             gameManager.testLevel = "Test/pool";
 
+            this.board.gameManager = gm;
             this.board.tilePrefab = tilePrefab;
             this.board.orbPrefab = orbPrefab;
             this.board.bearPrefab = bearPrefab;
@@ -93,15 +94,21 @@ namespace Tests
         [UnityTest]
         public IEnumerator DetectOrbAtGivenLocation()
         {
-            // Use the Assert class to test conditions            
-            Assert.True(this.board.PlayerMovedTo(Vector3.zero), "No contact made with an orb");
+            // Use the Assert class to test conditions
+            bear.transform.position = Vector3.zero;
+            Assert.True(this.board.PlayerMoved(), "No contact made with an orb");
             yield return null;
-            Assert.True(this.board.PlayerMovedTo(new Vector3(6, 0, 0)), "No contact made with an orb");
+            bear.transform.position = new Vector3(6, 0, 0);
+            Assert.True(this.board.PlayerMoved(), "No contact made with an orb");
             yield return null;
-            Assert.True(this.board.PlayerMovedTo(new Vector3(6, 3, 0)), "No contact made with an orb");
+            bear.transform.position = new Vector3(6, 3, 0);
+            Assert.True(this.board.PlayerMoved(), "No contact made with an orb");
             yield return null;
-            Assert.False(this.board.PlayerMovedTo(new Vector3(1,1,0)), "An orb was found where there is none");
-            Assert.False(this.board.PlayerMovedTo(new Vector3(4,5,0)), "An orb was found where there is none");
+            bear.transform.position = new Vector3(1,1,0);
+            Assert.False(this.board.PlayerMoved(), "An orb was found where there is none");
+            bear.transform.position = new Vector3(4,5,0); 
+            Assert.False(this.board.PlayerMoved(), "An orb was found where there is none");
+            
             yield return null;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {   
@@ -78,6 +79,55 @@ public class GameManager : MonoBehaviour
     public void TearDown()
     {
         board.GetComponent<Board>().TearDown();
+    }
+
+    /// <summary>
+    /// Coroutine of moving the an object linearly to a destination 
+    /// </summary>
+    /// <param name="moveDuration">Seconds the move lasts</param>
+    /// <param name="moveDistance">Units to move</param>
+    /// <param name="destination">World coordinate of the destination</param>
+    /// <param name="movingObject">Transform of the object to be moved</param>
+    /// <param name="afterMoving">Anything to do after moving</param>
+    /// <returns>Enumerator coroutine</returns>
+    private IEnumerator MovingCoroutine(float moveDuration, float moveDistance, Vector3 destination, Transform movingObject,
+        Action afterMoving)
+    {
+        var speed = moveDistance / moveDuration;
+        var start = Time.time;
+        // loop for one move duration
+        while (Time.time - start < moveDuration)
+        {
+
+            var step = speed * Time.deltaTime;
+            movingObject.position = Vector3.MoveTowards(
+                movingObject.position, destination, step
+            );
+            yield return null;
+        }
+
+        // clamp the values to the integer
+        var current = movingObject.position;
+        current.Set(Mathf.Round(current.x), Mathf.Round(current.y), Mathf.Round(current.z));
+        movingObject.position = current;
+
+        afterMoving();
+    }
+
+    /// <summary>
+    /// Coroutine of moving the an object linearly to a destination 
+    /// </summary>
+    /// <param name="moveDuration">Seconds the move lasts</param>
+    /// <param name="moveDistance">Units to move</param>
+    /// <param name="destination">World coordinate of the destination</param>
+    /// <param name="movingObject">Transform of the object to be moved</param>
+    /// <param name="afterMoving">Anything to do after moving</param>
+    /// <returns>Enumerator coroutine</returns>
+    public Coroutine Move(float moveDuration, float moveDistance, Vector3 destination, Transform movingObject,
+        Action afterMoving)
+    {
+        return StartCoroutine(MovingCoroutine(moveDuration, moveDistance, destination, movingObject,
+            afterMoving));
     }
 }
 

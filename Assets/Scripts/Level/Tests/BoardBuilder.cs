@@ -93,8 +93,21 @@ namespace Tests
             Assert.AreEqual(3,boardScript.orbs.Length, "Invalid number of orbs");
             Assert.AreEqual(1,boardScript.characters.Length, "Invalid number of characters");
 
-            Assert.AreEqual(new Vector3(1,3,0), boardScript.tiles[1,0].transform.position, "Tile not at correct position");
             Assert.AreEqual(new Vector3(0,3,0), boardScript.player.transform.position, "Player not at correct position");
+
+            var tileWorldPositions = new Vector3[] {
+                new Vector3(0,3,0), new Vector3(1,3,0), new Vector3(2,3,0), new Vector3(3,3,0), new Vector3(4,3,0), new Vector3(5,3,0), new Vector3(6,3,0),
+                new Vector3(0,2,0), new Vector3(1,2,0), new Vector3(6,2,0),
+                new Vector3(0,1,0), new Vector3(1,1,0), new Vector3(6,1,0),
+                new Vector3(0,0,0), new Vector3(1,0,0), new Vector3(2,0,0), new Vector3(3,0,0), new Vector3(4,0,0), new Vector3(5,0,0), new Vector3(6,0,0)
+            };
+
+            foreach (var tile in tileWorldPositions)
+            {
+                Assert.AreEqual(tile, 
+                    boardScript.tiles[(int) tile.x, (int) (boardScript.boardDimension[1] - 1 - tile.y)].transform.position,
+                    "Tile not at correct position");
+            }
         }
     }
 }

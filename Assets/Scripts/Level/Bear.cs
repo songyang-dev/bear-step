@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class Bear : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class Bear : MonoBehaviour
     /// <summary>
     /// Reference to the coroutine of move
     /// </summary>
-    private Coroutine movingCoroutine;
+    private Coroutine _movingCoroutine;
 
     /// <summary>
     /// Reference to the board
@@ -52,14 +53,17 @@ public class Bear : MonoBehaviour
     /// Position of the bear in game logic (read only)
     /// </summary>
     /// <returns></returns>
-    public Vector2Int boardPosition = new Vector2Int();
+    public Vector2Int logicalPosition = new Vector2Int();
+
+    public GameManager gameManager;
 
     /// <summary>
     /// Sets the references to the board and the player's logical position
     /// </summary>
     private void Awake()
     {
-        board = GameObject.Find("Board").GetComponent<Board>();
+        board = this.GetComponentInParent<Board>();
+        gameManager = board.gameManager.GetComponent<GameManager>();
         UpdateBoardPosition();
     }
 
@@ -68,55 +72,9 @@ public class Bear : MonoBehaviour
     /// </summary>
     private void UpdateBoardPosition()
     {
-        boardPosition.Set(
+        logicalPosition.Set(
             Mathf.RoundToInt(this.transform.position.x),
             Mathf.RoundToInt(board.boardDimension[1] - 1 - this.transform.position.y)
-        );
-    }
-
-    /// <summary>
-    /// Coroutine of moving the player
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator Move()
-    {
-
-        if (_going != null)
-        {
-            var speed = moveDistance / moveDuration;
-            var start = Time.time;
-            // loop for one move duration
-            while (Time.time - start < moveDuration)
-            {
-
-                var step = speed * Time.deltaTime;
-                Move(step);
-                yield return null;
-            }
-
-            // clamp the values to the integer
-            var current = this.transform.position;
-            current.Set(Mathf.Round(current.x), Mathf.Round(current.y), Mathf.Round(current.z));
-            this.transform.position = current;
-
-            UpdateBoardPosition();
-
-            // signal the board (parent)
-            this.transform.parent.gameObject.GetComponent<Board>()
-                .PlayerMovedTo(this.transform.position);
-
-            _going = null;
-        }
-    }
-
-    /// <summary>
-    /// Moves the player by at most the given step distance to the destination
-    /// </summary>
-    /// <param name="step">Max step delta</param>
-    public void Move(float step)
-    {
-        this.transform.position = Vector3.MoveTowards(
-            this.transform.position, _destination, step
         );
     }
 
@@ -127,12 +85,25 @@ public class Bear : MonoBehaviour
     public void Move(Direction direction)
     {
         if (_going != null) return;
+        if (!board.IsLegalMove(this.logicalPosition, direction)) return;
 
         _going = direction;
         _destination = this.transform.position + directions[direction];
 
         // must check for opened directions
-        movingCoroutine = StartCoroutine(Move());
+        _movingCoroutine = gameManager.Move(moveDuration, moveDistance, _destination, this.transform,
+            () =>
+            {
+                UpdateBoardPosition();
+
+                // signal the board (parent) for orb collisions
+                // signal the board (parent) for tile state changes
+                board.PlayerMoved();
+                board.LowerPreviousTile(direction);
+
+                _going = null;
+            }
+        );
     }
 
     /// <summary>

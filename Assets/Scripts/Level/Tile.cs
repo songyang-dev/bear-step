@@ -13,7 +13,42 @@ public enum TileState
 
 public class Tile : MonoBehaviour
 {
+    private TileState state;
 
-    public TileState state;
+    public TileState State { get => state; private set => state = value; }
 
+    public float moveDistance;
+
+    public float moveDuration;
+
+    private Coroutine _movingCoroutine;
+
+    public GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = this.GetComponentInParent<Board>().gameManager.GetComponent<GameManager>();
+    }
+
+    public void InitiateTileState(TileState state)
+    {
+        State = state;
+    }
+
+    public void ChangeTileState(TileState state)
+    {
+        if (state == this.State) throw new System.Exception($"Tile state did not change from {state}");
+        State = state;
+
+        // physically lower the tile
+        if (state == TileState.Down)
+        {
+            _movingCoroutine = gameManager.Move(moveDuration, moveDistance, this.transform.position + new Vector3(0, 0, 1),
+                this.transform, () =>
+                {
+                    State = TileState.Down;
+                }
+            );
+        }
+    }
 }
