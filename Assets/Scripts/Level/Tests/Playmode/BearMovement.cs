@@ -19,9 +19,6 @@ namespace Tests
             // tests whether the coroutine works properly            
             Vector3 initial;
 
-            // bear movement speed
-            var speed = bear.moveDistance/bear.moveDuration;
-
             foreach (var direction in new List<Direction> {
                 Direction.East, Direction.South, Direction.West, Direction.South 
                 })
@@ -32,7 +29,7 @@ namespace Tests
                 yield return null;
                 Assert.AreNotEqual(bear.transform.position, initial, $"Bear did not move when direction is {direction}");
 
-                yield return new WaitForSeconds(speed);
+                yield return new WaitForSeconds(bear.moveDuration);
                 Assert.AreEqual(initial + bear.directions[direction], bear.transform.position, $"Bear did not arrive toward {direction}");
             }
         }
@@ -47,9 +44,6 @@ namespace Tests
             // tests whether the coroutine works properly            
             Vector2Int initial;
 
-            // bear movement speed
-            var speed = bear.moveDistance/bear.moveDuration;
-
             var correctCoordinates = new Dictionary<Direction, Vector2Int> {
                 {Direction.South, new Vector2Int(0,1)},
                 {Direction.East, new Vector2Int(1,0)},
@@ -61,7 +55,7 @@ namespace Tests
                 initial = bear.logicalPosition;
 
                 bear.Move(direction);
-                yield return new WaitForSeconds(speed);
+                yield return new WaitForSeconds(bear.moveDuration);
                 Assert.AreEqual(initial + correctCoordinates[direction], bear.logicalPosition, 
                     $"Bear did not arrive toward {direction}");
             }

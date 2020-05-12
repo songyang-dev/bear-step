@@ -12,11 +12,6 @@ public class Bear : MonoBehaviour
     private Direction? _going;
 
     /// <summary>
-    /// Temporary variable storing the movement destination, used to stabilize floating points
-    /// </summary>
-    private Vector3 _destination;
-
-    /// <summary>
     /// Dictionary holding the equivalencies of direction with the WORLD coordinates
     /// </summary>
     /// <typeparam name="Direction">Cardinal direction in the game</typeparam>
@@ -81,14 +76,19 @@ public class Bear : MonoBehaviour
     /// <param name="direction">Direction to move to</param>
     public void Move(Direction direction)
     {
+        // do not stack movements on the bear
         if (_going != null) return;
+
+        // check if the given direction would be legal
         if (!board.IsLegalMove(this.logicalPosition, direction)) return;
 
-        _going = direction;
-        _destination = this.transform.position + directions[direction];
+        
+        var destination = this.transform.position + directions[direction];
 
-        // must check for opened directions
-        _movingCoroutine = gameManager.Move(moveDuration, moveDistance, _destination, this.transform,
+        float speed = moveDistance / moveDuration;
+
+        _movingCoroutine = gameManager.PlayerMove(moveDuration, speed, destination, this.transform,
+            () => {_going = direction;}, // before
             () =>
             {
                 UpdateBoardPosition();
@@ -99,7 +99,10 @@ public class Bear : MonoBehaviour
                 board.LowerPreviousTile(direction);
 
                 _going = null;
-            }
+            },
+            // TODO: challenge access denial only when tiles are lowering in irrelevant locations
+            // no need to challenge access as long as the move is legal and the lock of lowering tiles is ignored
+            () => false 
         );
     }
 

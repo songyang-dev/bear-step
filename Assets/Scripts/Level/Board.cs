@@ -17,7 +17,7 @@ public enum Direction
 
 public class Board : MonoBehaviour
 {
-    
+
     public GameObject gameManager;
 
     /// <summary>
@@ -29,6 +29,11 @@ public class Board : MonoBehaviour
     /// 2d array of tile gameobjects, [0,0] is top left corner
     /// </summary>
     public GameObject[,] tiles;
+
+    /// <summary>
+    /// How many active tiles are there?
+    /// </summary>
+    public int tileCount = 0;
 
     /// <summary>
     /// List of orb gameobjects
@@ -75,6 +80,10 @@ public class Board : MonoBehaviour
     /// </summary>
     public UnityEvent touchOrb;
 
+    /// <summary>
+    /// Dictionary converting directions to vectors of logical positions
+    /// </summary>
+    /// <value>4 cardinal directions</value>
     public Dictionary<Direction, Vector2Int> logicalDirections = new Dictionary<Direction, Vector2Int>
     {
         {Direction.North, new Vector2Int(0,-1)},
@@ -82,6 +91,26 @@ public class Board : MonoBehaviour
         {Direction.East, new Vector2Int(1,0)},
         {Direction.West, new Vector2Int(-1,0)}
     };
+
+    /// <summary>
+    /// Reference tracking the flip coroutine
+    /// </summary>
+    private Coroutine _flipCoroutine;
+
+    /// <summary>
+    /// Distance to travel when a tile needs to flip
+    /// </summary>
+    public float flipDistance;
+
+    /// <summary>
+    /// Duration of travel when a flip is performed
+    /// </summary>
+    public float flipDuration;
+
+    /// <summary>
+    /// Flag to know if the board is flipping
+    /// </summary>
+    private bool _flipping = false;
 
     /// <summary>
     /// Destroys the game object loaded by Level(str)
@@ -146,8 +175,24 @@ public class Board : MonoBehaviour
             }
 
             // otherwise, instantiate a tile
+
+            float newTileZCoord;
+
+            // set its state
+            switch (json.Tiles[i])
+            {
+                case 1:
+                    newTileZCoord = -1;
+                    break;
+                case 2:
+                    newTileZCoord = 0;
+                    break;
+                default:
+                    throw new System.ArgumentException($"Invalid tile state, seen {json.Tiles[i]}");
+            }
+
             var newTile =
-                GameObject.Instantiate(tilePrefab, new Vector3(x, boardDimension[1] - y - 1, 0),
+                GameObject.Instantiate(tilePrefab, new Vector3(x, boardDimension[1] - y - 1, newTileZCoord),
                     Quaternion.Euler(-90, 0, 0), this.transform);
 
             // set its state
@@ -164,6 +209,7 @@ public class Board : MonoBehaviour
             }
 
             tiles[x, y] = newTile;
+            this.tileCount++;
         }
     }
 
@@ -225,11 +271,13 @@ public class Board : MonoBehaviour
     /// <param name="context">Unity input system context</param>
     public void MoveAllPlayers(InputAction.CallbackContext context)
     {
+
         foreach (var player in characters)
         {
             if (player.name.Contains("Bear"))
                 player.GetComponent<Bear>().Move(context);
         }
+
     }
 
     /// <summary>
@@ -249,9 +297,12 @@ public class Board : MonoBehaviour
             if (orb.transform.position.x == location.x && orb.transform.position.y == location.y)
             {
                 // contact made between player and orb
-                contact = orb;
-                // only one contact possible
-                break;
+                // contact is only possible when the orb is active
+                if (orb.activeSelf)
+                {
+                    contact = orb;
+                    break;
+                }
             }
         }
 
@@ -283,6 +334,7 @@ public class Board : MonoBehaviour
     /// <returns>Whether the move is legal</returns>
     public bool IsLegalMove(Vector2Int logicalCoordinate, Direction to)
     {
+        // checks if the bear is located within proper coordinates
         VerifyLogicalCoordinate(logicalCoordinate, true);
 
         var destination = logicalCoordinate + logicalDirections[to];
@@ -290,12 +342,16 @@ public class Board : MonoBehaviour
         // destination is valid in the game
         if (VerifyLogicalCoordinate(destination, false))
         {
+            var fromTile = tiles[logicalCoordinate[0], logicalCoordinate[1]]
+                .GetComponent<Tile>();
+            var toTile = tiles[destination[0], destination[1]]
+                .GetComponent<Tile>();
+
+            // if the tile is moving (lowering), then the move is illegal
+            if (toTile.Lowering) return false;
+
             // check if the tile is at the same level as the logicalCoordinate
-            var fromState = tiles[logicalCoordinate[0], logicalCoordinate[1]]
-                .GetComponent<Tile>().State;
-            var toState = tiles[destination[0], destination[1]]
-                .GetComponent<Tile>().State;
-            if (fromState == toState) return true;
+            if (fromTile.State == toTile.State) return true;
             else return false;
         }
         else return false;
@@ -353,8 +409,33 @@ public class Board : MonoBehaviour
     {
         var previousLogicalPosition = player.GetComponent<Bear>().logicalPosition
             - logicalDirections[performedMoveDirection];
-        
+
         tiles[previousLogicalPosition[0], previousLogicalPosition[1]].GetComponent<Tile>()
-            .ChangeTileState(TileState.Down);
+            .LowerTile();
+    }
+
+    /// <summary>
+    /// Flips the board, a signature move
+    /// </summary>
+    public void Flip()
+    {
+        if (_flipping == true) return;
+
+        float speed = flipDistance / flipDuration;
+
+        _flipCoroutine = gameManager.GetComponent<GameManager>().Flip(
+            flipDuration, speed, this,
+            () => _flipping = true,
+            () => _flipping = false,
+            () => false
+        );
+    }
+
+    public void Flip(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Flip();
+        }
     }
 }

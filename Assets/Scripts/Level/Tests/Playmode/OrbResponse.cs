@@ -59,6 +59,8 @@ namespace Tests
             this.board.orbPrefab = orbPrefab;
             this.board.bearPrefab = bearPrefab;
             this.board.touchOrb = new UnityEngine.Events.UnityEvent();
+            this.board.flipDistance = 1;
+            this.board.flipDuration = 1;
 
             this.camera.board = board;
             this.camera.speed = 3;

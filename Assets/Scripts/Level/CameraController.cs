@@ -118,7 +118,7 @@ public class CameraController : MonoBehaviour
     /// <param name="context"></param>
     public void Center(InputAction.CallbackContext context)
     {
-        Center();
+        if (context.performed) Center();
     }
 
     /// <summary>

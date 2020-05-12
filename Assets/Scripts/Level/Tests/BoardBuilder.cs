@@ -9,9 +9,9 @@ namespace Tests
     public class BoardBuilder
     {
 
-        GameObject board;
+        protected GameObject board;
 
-        GameManager gameManager;
+        protected GameManager gameManager;
 
         [SetUp]
         public void PrepareTest()
