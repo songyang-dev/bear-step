@@ -111,6 +111,7 @@ public class Board : MonoBehaviour
     /// Flag to know if the board is flipping
     /// </summary>
     private bool _flipping = false;
+    private bool _justflipped;
 
     /// <summary>
     /// Destroys the game object loaded by Level(str)
@@ -289,32 +290,22 @@ public class Board : MonoBehaviour
     {
         var location = player.transform.position;
 
-        GameObject contact = null;
-
         foreach (var orb in orbs)
         {
-            if (orb == null) continue;
+            if (orb == null || orb.activeSelf == false) continue;
             if (orb.transform.position.x == location.x && orb.transform.position.y == location.y)
             {
                 // contact made between player and orb
                 // contact is only possible when the orb is active
-                if (orb.activeSelf)
-                {
-                    contact = orb;
-                    break;
-                }
+
+                // there is a contact orb
+                orb.GetComponent<Orb>().Touched();
+                return true;
             }
         }
 
         // no contact case
-        if (contact == null) return false;
-
-        // there is a contact orb, trigger event
-        touchOrb.Invoke();
-
-        contact.SetActive(false); // deactivates the orb
-
-        return true;
+        return false;
     }
 
     /// <summary>
@@ -402,16 +393,25 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Lowers the tile that the player just moved out of
+    /// Lowers the tile that the player just moved out of. If marked for destruction, initiate destruction.
     /// </summary>
-    /// <param name="performedMoveDirection"></param>
-    public void LowerPreviousTile(Direction performedMoveDirection)
+    /// <param name="performedMoveDirection">Direction taken by the player</param>
+    public void ActOnPreviousTile(Direction performedMoveDirection)
     {
         var previousLogicalPosition = player.GetComponent<Bear>().logicalPosition
             - logicalDirections[performedMoveDirection];
-
-        tiles[previousLogicalPosition[0], previousLogicalPosition[1]].GetComponent<Tile>()
-            .LowerTile();
+        
+        // check if a tile needs to be destroyed because of a flip
+        if (_justflipped)
+        {
+            tiles[previousLogicalPosition[0], previousLogicalPosition[1]].GetComponent<Tile>()
+                .DestroyAfterFlipping();
+            
+            _justflipped = false;
+        }
+        else
+            tiles[previousLogicalPosition[0], previousLogicalPosition[1]].GetComponent<Tile>()
+                .LowerTile();
     }
 
     /// <summary>
@@ -426,7 +426,10 @@ public class Board : MonoBehaviour
         _flipCoroutine = gameManager.GetComponent<GameManager>().Flip(
             flipDuration, speed, this,
             () => _flipping = true,
-            () => _flipping = false,
+            () => {
+                _flipping = false; 
+                _justflipped = true;
+            },
             () => false
         );
     }

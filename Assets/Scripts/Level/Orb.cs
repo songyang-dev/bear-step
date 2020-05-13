@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class Orb : MonoBehaviour
 {
+    public void Touched()
+    {
+        Board board = GetComponentInParent<Board>();
+
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
+
+        board.touchOrb.Invoke();
+    }
 
 }

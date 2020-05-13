@@ -156,4 +156,11 @@ public class Tile : MonoBehaviour
                 throw new System.Exception("Unrecognized tile state in FlipPosition()");
         }
     }
+
+
+    public void DestroyAfterFlipping()
+    {
+        GetComponentInParent<Board>().tileCount--; // decrease tile count
+        Destroy(this.gameObject);
+    }
 }

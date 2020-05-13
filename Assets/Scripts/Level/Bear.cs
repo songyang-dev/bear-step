@@ -96,7 +96,7 @@ public class Bear : MonoBehaviour
                 // signal the board (parent) for orb collisions
                 // signal the board (parent) for tile state changes
                 board.PlayerMoved();
-                board.LowerPreviousTile(direction);
+                board.ActOnPreviousTile(direction);
 
                 _going = null;
             },

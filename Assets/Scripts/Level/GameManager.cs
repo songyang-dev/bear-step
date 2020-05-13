@@ -264,6 +264,8 @@ public class GameManager : MonoBehaviour
         var tiles = new Transform[board.tileCount - 1];
         var destinations = new Vector3[board.tileCount - 1];
 
+        GameObject playerTile = null;
+
         int i = 0;
         foreach (var item in board.tiles)
         {
@@ -272,7 +274,10 @@ public class GameManager : MonoBehaviour
             // skip player tile
             if (board.player.transform.position.x == item.transform.position.x &&
                 board.player.transform.position.y == item.transform.position.y)
+            {
+                playerTile = item;
                 continue;
+            }
 
             tiles[i] = item.transform;
             destinations[i] = item.GetComponent<Tile>().FlipPosition();
@@ -280,12 +285,14 @@ public class GameManager : MonoBehaviour
         }
         
         return Move(flipDuration, speed, destinations, tiles, before,
-            // change the tile states of each tile
+            
             () => {
+                // change the tile states of each tile
                 foreach (var item in tiles)
                 {
                     item.GetComponent<Tile>().Flip();
                 }
+
                 after();
             },
             Lock.Flip);
