@@ -101,6 +101,13 @@ namespace Tests
             Assert.AreEqual(rightLowerCornerTileInitialPosition + new Vector3(0, 0, 1), rightLowerCornerTile.transform.position, "Right lower corner tile moved too much");
         }
 
-        
+        [UnityTest]
+        public IEnumerator FlipTwice()
+        {
+            board.Flip();
+            yield return new WaitForSeconds(board.flipDuration);
+            board.Flip();
+            yield return new WaitForSeconds(board.flipDuration);
+        }
     }
 }

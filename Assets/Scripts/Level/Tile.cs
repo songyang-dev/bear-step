@@ -179,7 +179,9 @@ public class Tile : MonoBehaviour
             renderer.material.color = c;
             yield return null;
         }
+
         Fading = false;
+        GetComponentInParent<Board>().tileCount--; // decrease tile count
         Destroy(this.gameObject);
     }
 }

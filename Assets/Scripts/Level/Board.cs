@@ -432,7 +432,6 @@ public class Board : MonoBehaviour
             () => {
                 _flipping = false; 
                 _justflipped = true;
-                tileCount--; // decrease tile count
             },
             () => false
         );

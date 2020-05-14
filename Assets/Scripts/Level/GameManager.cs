@@ -261,6 +261,9 @@ public class GameManager : MonoBehaviour
         // group all flipping tiles into an array
         // group all flipping destinations into an array
         // NOTE: exclude the tile the player is on
+        if (board.tileCount == 1) 
+            throw new Exception("Only tile in the level, the level should be considered as lost.");
+
         var tiles = new Transform[board.tileCount - 1];
         var destinations = new Vector3[board.tileCount - 1];
 
