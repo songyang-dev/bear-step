@@ -23,12 +23,14 @@ public class Tile : MonoBehaviour
     /// </summary>
     /// <value></value>
     public TileState State { get => _state; private set => _state = value; }
-    
+
     /// <summary>
     /// Whether the tile is lowering
     /// </summary>
     /// <value></value>
     public bool Lowering { get => _lowering; private set => _lowering = value; }
+    
+    public bool Fading { get => _fading; private set => _fading = value; }
 
     /// <summary>
     /// Distance to move when changing state
@@ -60,6 +62,8 @@ public class Tile : MonoBehaviour
     /// </summary>
     /// <value></value>
     public Dictionary<TileState, Vector3> tileStatePositions;
+    private bool _fading;
+    private Coroutine _fade;
 
     private void Awake()
     {
@@ -108,7 +112,7 @@ public class Tile : MonoBehaviour
         // physically lower the tile
         _movingCoroutine = gameManager.LowerTile(moveDuration, speed, tileStatePositions[TileState.Down],
             this.transform,
-            () => {Lowering = true;}, // before
+            () => { Lowering = true; }, // before
             () => // after
             {
                 State = TileState.Down;
@@ -160,7 +164,22 @@ public class Tile : MonoBehaviour
 
     public void DestroyAfterFlipping()
     {
-        GetComponentInParent<Board>().tileCount--; // decrease tile count
+        Fading = true;
+        _fade = StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        var renderer = GetComponent<Renderer>();
+
+        for (float ft = 1f; ft >= 0; ft -= 0.1f)
+        {
+            Color c = renderer.material.color;
+            c.a = ft;
+            renderer.material.color = c;
+            yield return null;
+        }
+        Fading = false;
         Destroy(this.gameObject);
     }
 }

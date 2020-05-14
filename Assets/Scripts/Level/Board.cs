@@ -341,6 +341,9 @@ public class Board : MonoBehaviour
             // if the tile is moving (lowering), then the move is illegal
             if (toTile.Lowering) return false;
 
+            // if the tile is fading, then the move is illegal
+            if (toTile.Fading) return false;
+
             // check if the tile is at the same level as the logicalCoordinate
             if (fromTile.State == toTile.State) return true;
             else return false;
@@ -429,6 +432,7 @@ public class Board : MonoBehaviour
             () => {
                 _flipping = false; 
                 _justflipped = true;
+                tileCount--; // decrease tile count
             },
             () => false
         );

@@ -38,6 +38,11 @@ namespace Tests
 
         }
 
+        /// <summary>
+        /// Checks if the orb lowers down as the tile lowers down. The test currently fails because 
+        /// child objects don't update their global transform positions. But the game still works.
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public IEnumerator OrbMovesDown()
         {
