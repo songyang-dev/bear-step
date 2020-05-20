@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 1
-  moveDuration: 0.5
+  moveDuration: 1
   gameManager: {fileID: 0}

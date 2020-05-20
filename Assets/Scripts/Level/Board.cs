@@ -111,7 +111,10 @@ public class Board : MonoBehaviour
     /// Flag to know if the board is flipping
     /// </summary>
     private bool _flipping = false;
+    
     private bool _justflipped;
+
+    public GameObject orbCount;
 
     /// <summary>
     /// Destroys the game object loaded by Level(str)
@@ -234,6 +237,8 @@ public class Board : MonoBehaviour
                 new Vector3(orb.Coord[0], boardDimension[1] - orb.Coord[1] - 1, -1),
                 Quaternion.Euler(-90, 0, 0), parent);
         }
+
+        orbCount.GetComponent<OrbCountUI>().InitiateCount(orbs.Length);
     }
 
     /// <summary>
@@ -315,6 +320,8 @@ public class Board : MonoBehaviour
     {
         Debug.Log(this.messages[_messageIndex]);
         _messageIndex++;
+
+        orbCount.GetComponent<OrbCountUI>().Increment();
     }
 
     /// <summary>

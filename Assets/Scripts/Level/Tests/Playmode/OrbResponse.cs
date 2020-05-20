@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Tests
 {
@@ -40,6 +41,10 @@ namespace Tests
             light.transform.rotation = Quaternion.Euler(50, -30, 0);
             light.AddComponent<Light>();
 
+            var orbCount = new GameObject("Orb count text");
+            orbCount.AddComponent<OrbCountUI>();
+            orbCount.AddComponent<Text>();
+
             // link prefabs
             var bearPrefab = Resources.Load<GameObject>("Prefabs/Bear");
             var orbPrefab = Resources.Load<GameObject>("Prefabs/Orb");
@@ -61,6 +66,7 @@ namespace Tests
             this.board.touchOrb = new UnityEngine.Events.UnityEvent();
             this.board.flipDistance = 1;
             this.board.flipDuration = 1;
+            this.board.orbCount = orbCount;
 
             this.camera.board = board;
             this.camera.speed = 3;
