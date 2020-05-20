@@ -115,6 +115,8 @@ public class Board : MonoBehaviour
     private bool _justflipped;
 
     public GameObject orbCount;
+    
+    public GameObject orbMessage;
 
     /// <summary>
     /// Destroys the game object loaded by Level(str)
@@ -319,9 +321,12 @@ public class Board : MonoBehaviour
     public void DisplayOrbMessage()
     {
         Debug.Log(this.messages[_messageIndex]);
-        _messageIndex++;
+        
 
         orbCount.GetComponent<OrbCountUI>().Increment();
+
+        orbMessage.GetComponent<OrbMessageUI>().Display(this.messages[_messageIndex]);
+        _messageIndex++;
     }
 
     /// <summary>
