@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class OrbMessageUI : MonoBehaviour
 {
+    public Animator animationController;
+
     private void Awake()
     {
         GetComponent<Text>().text = "";
@@ -12,11 +14,15 @@ public class OrbMessageUI : MonoBehaviour
 
     public void Display(string message)
     {
-        GetComponent<Graphic>().CrossFadeAlpha(1f, 0f, false);
-
         var text = GetComponent<Text>().text = message;
-
-        GetComponent<Graphic>().CrossFadeAlpha(0f, 5f, false);
-
+        animationController.SetTrigger("Appear");
+        
+        // let the UI fade after some time
+        IEnumerator Fade()
+        {
+            yield return new WaitForSeconds(3f);
+            animationController.SetTrigger("Disappear");
+        }
+        StartCoroutine(Fade());
     }
 }

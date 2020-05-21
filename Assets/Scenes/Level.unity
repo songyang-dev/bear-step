@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 1490492900}
   - component: {fileID: 1490492899}
   - component: {fileID: 1490492898}
+  - component: {fileID: 1490492901}
   m_Layer: 5
   m_Name: Orb message
   m_TagString: Untagged
@@ -609,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878b0ceb29d589b47ba1bd569e727e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationController: {fileID: 1490492901}
 --- !u!114 &1490492899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -650,6 +652,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490492896}
   m_CullTransparentMesh: 0
+--- !u!95 &1490492901
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490492896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f5778b71e5931945a619d8ffb1c4016, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1733018642
 GameObject:
   m_ObjectHideFlags: 0
