@@ -39,6 +39,14 @@ public class GameManager : MonoBehaviour
     /// Internal flag to check if the bear is moving
     /// </summary>
     private bool _movingBear = false;
+    
+    public GameObject bearPrefab;
+
+    public GameObject orbPrefab;
+
+    public GameObject tilePrefab;
+
+    public Animator orbMessageUIAnimator;
 
     public int MovingTile { get => _movingTile; private set => _movingTile = value;}
     public bool Flipping { get => _flipping; private set => _flipping = value;}

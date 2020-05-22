@@ -60,15 +60,11 @@ namespace Tests
             gameManager.testLevel = "Test/pool";
 
             this.board.gameManager = gm;
-            this.board.tilePrefab = tilePrefab;
-            this.board.orbPrefab = orbPrefab;
-            this.board.bearPrefab = bearPrefab;
             this.board.touchOrb = new UnityEngine.Events.UnityEvent();
             this.board.flipDistance = 1;
             this.board.flipDuration = 1;
             this.board.orbCount = orbCount;
 
-            this.camera.board = board;
             this.camera.speed = 3;
             this.camera.offset = new Vector3(0.1800001f, -1.86f, -5.08f);
             this.camera.rotation = new Vector3(-37.233f, 0, 0);

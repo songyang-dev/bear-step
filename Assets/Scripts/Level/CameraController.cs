@@ -24,9 +24,14 @@ public class CameraController : MonoBehaviour
     public Vector3 rotation;
 
     /// <summary>
+    /// Reference to the game manager
+    /// </summary>
+    public GameObject gameManager;
+
+    /// <summary>
     /// Board gameobject of the scene
     /// </summary>
-    public GameObject board;
+    private GameObject _board;
 
     /// <summary>
     /// Movement direction that is temporarily stored
@@ -38,13 +43,18 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public float speed;
 
+    private void Awake()
+    {
+        _board = gameManager.GetComponent<GameManager>().board;
+    }
+
     /// <summary>
     /// Sets up where the camera starts and its limits
     /// </summary>
     /// <param name="json">Serialized json class of the level</param>
     public void SetUp(JSONLevel json)
     {
-        var _board = board.GetComponent<Board>();
+        var _board = this._board.GetComponent<Board>();
 
         limits.Clear();
 
@@ -127,7 +137,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void Center()
     {
-        var playerPosition = board.GetComponent<Board>().player.transform.position;
+        var playerPosition = _board.GetComponent<Board>().player.transform.position;
 
         this.transform.SetPositionAndRotation(playerPosition + offset,
             Quaternion.Euler(rotation));

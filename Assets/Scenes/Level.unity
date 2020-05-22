@@ -155,13 +155,6 @@ MonoBehaviour:
   tileCount: 0
   orbs: []
   characters: []
-  tilePrefab: {fileID: 2120793455244450866, guid: 1b94055a504691a4ab6b0db681f290bd,
-    type: 3}
-  orbPrefab: {fileID: 118317355310076960, guid: 7a092294ec100e840866801350740ae8,
-    type: 3}
-  bearPrefab: {fileID: 3560112177816658897, guid: 7547c7075f9c24843a1f7088bffceda6,
-    type: 3}
-  player: {fileID: 0}
   messages: []
   touchOrb:
     m_PersistentCalls:
@@ -314,6 +307,13 @@ MonoBehaviour:
   cam: {fileID: 1485289667}
   test: 1
   testLevel: Test/pool
+  bearPrefab: {fileID: 3560112177816658897, guid: 7547c7075f9c24843a1f7088bffceda6,
+    type: 3}
+  orbPrefab: {fileID: 118317355310076960, guid: 7a092294ec100e840866801350740ae8,
+    type: 3}
+  tilePrefab: {fileID: 2120793455244450866, guid: 1b94055a504691a4ab6b0db681f290bd,
+    type: 3}
+  orbMessageUIAnimator: {fileID: 1490492901}
 --- !u!4 &1211441083
 Transform:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0.1800001, y: -1.86, z: -5.08}
   rotation: {x: -37.233, y: 0, z: 0}
-  board: {fileID: 419214397}
+  gameManager: {fileID: 1211441081}
   speed: 3
 --- !u!1 &1490492896
 GameObject:
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878b0ceb29d589b47ba1bd569e727e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationController: {fileID: 1490492901}
+  gameManager: {fileID: 1211441081}
 --- !u!114 &1490492899
 MonoBehaviour:
   m_ObjectHideFlags: 0

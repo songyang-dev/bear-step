@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class OrbMessageUI : MonoBehaviour
 {
-    public Animator animationController;
+    public GameObject gameManager;
+
+    private Animator animationController;
 
     private void Awake()
     {
+        animationController = gameManager.GetComponent<GameManager>().orbMessageUIAnimator;
         GetComponent<Text>().text = "";
     }
 

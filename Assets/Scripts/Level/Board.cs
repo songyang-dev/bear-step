@@ -48,21 +48,22 @@ public class Board : MonoBehaviour
     /// <summary>
     /// Tile prefab asset
     /// </summary>
-    public GameObject tilePrefab;
+    private GameObject tilePrefab;
 
     /// <summary>
     /// Orb prefab asset
     /// </summary>
-    public GameObject orbPrefab;
+    private GameObject orbPrefab;
 
     /// <summary>
     /// Bear prefab asset
     /// </summary>
-    public GameObject bearPrefab;
+    private GameObject bearPrefab;
 
     /// <summary>
     /// One of the playable character in the level
     /// </summary>
+    [System.NonSerialized]
     public GameObject player;
 
     /// <summary>
@@ -117,6 +118,15 @@ public class Board : MonoBehaviour
     public GameObject orbCount;
     
     public GameObject orbMessage;
+
+
+    private void Awake()
+    {
+        var gm = gameManager.GetComponent<GameManager>();
+        bearPrefab = gm.bearPrefab;
+        orbPrefab = gm.orbPrefab;
+        tilePrefab = gm.tilePrefab;
+    }
 
     /// <summary>
     /// Destroys the game object loaded by Level(str)
