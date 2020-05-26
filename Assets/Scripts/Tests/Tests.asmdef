@@ -1,10 +1,12 @@
 {
-    "name": "Playmode",
+    "name": "Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Level",
-        "Unity.InputSystem"
+        "Unity.InputSystem",
+        "Unity.InputSystem.TestFramework",
+        "Unity.InputSystem.IntegrationTests"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

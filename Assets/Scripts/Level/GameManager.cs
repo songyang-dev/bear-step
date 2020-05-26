@@ -48,6 +48,10 @@ public class GameManager : MonoBehaviour
 
     public Animator orbMessageUIAnimator;
 
+    public GameObject orbCount;
+
+    public GameObject orbMessage;
+
     public int MovingTile { get => _movingTile; private set => _movingTile = value;}
     public bool Flipping { get => _flipping; private set => _flipping = value;}
     public bool MovingBear { get => _movingBear; set => _movingBear = value; }
@@ -90,7 +94,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <param name="name">Path of the JSON level description</param>
     /// <param name="gameManager">The level's scene game manager</param>
-    public void Level(string name)
+    private void Level(string name)
     {
         // Read json
         var jsonTextFile = Resources.Load<TextAsset>(name);

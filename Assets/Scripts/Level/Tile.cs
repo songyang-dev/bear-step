@@ -35,12 +35,12 @@ public class Tile : MonoBehaviour
     /// <summary>
     /// Distance to move when changing state
     /// </summary>
-    public float moveDistance;
+    public float stateChangeDistance;
 
     /// <summary>
     /// Duration to move when changing state
     /// </summary>
-    public float moveDuration;
+    public float stateChangeDuration;
 
     /// <summary>
     /// Reference to track the coroutine of moving the tile
@@ -107,10 +107,10 @@ public class Tile : MonoBehaviour
     {
         if (State == TileState.Down) throw new System.Exception($"Tile state was already down");
 
-        var speed = moveDistance / moveDuration;
+        var speed = stateChangeDistance / stateChangeDuration;
 
         // physically lower the tile
-        _movingCoroutine = gameManager.LowerTile(moveDuration, speed, tileStatePositions[TileState.Down],
+        _movingCoroutine = gameManager.LowerTile(stateChangeDuration, speed, tileStatePositions[TileState.Down],
             this.transform,
             () => { Lowering = true; }, // before
             () => // after

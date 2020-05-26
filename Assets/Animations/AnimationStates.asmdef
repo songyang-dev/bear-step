@@ -1,3 +1,15 @@
-﻿{
-	"name": "AnimationStates"
+{
+    "name": "AnimationStates",
+    "references": [
+        "GUID:9441b958dce1a904f810bdc701fa3a7a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

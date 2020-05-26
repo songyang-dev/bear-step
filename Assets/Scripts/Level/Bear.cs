@@ -42,7 +42,7 @@ public class Bear : MonoBehaviour
     /// <summary>
     /// Reference to the board
     /// </summary>
-    public Board board;
+    private Board board;
 
     /// <summary>
     /// Position of the bear in game logic (read only)

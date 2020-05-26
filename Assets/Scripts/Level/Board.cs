@@ -23,26 +23,31 @@ public class Board : MonoBehaviour
     /// <summary>
     /// Width x Height
     /// </summary>
+    [System.NonSerialized]
     public int[] boardDimension;
 
     /// <summary>
     /// 2d array of tile gameobjects, [0,0] is top left corner
     /// </summary>
+    [System.NonSerialized]
     public GameObject[,] tiles;
 
     /// <summary>
     /// How many active tiles are there?
     /// </summary>
+    [System.NonSerialized]
     public int tileCount = 0;
 
     /// <summary>
     /// List of orb gameobjects
     /// </summary>
+    [System.NonSerialized]
     public GameObject[] orbs;
 
     /// <summary>
     /// List of board character, including the player, as gameobjects
     /// </summary>
+    [System.NonSerialized]
     public GameObject[] characters;
 
     /// <summary>
@@ -69,6 +74,7 @@ public class Board : MonoBehaviour
     /// <summary>
     /// List of messages read from json
     /// </summary>
+    [System.NonSerialized]
     public string[] messages;
 
     /// <summary>
@@ -85,6 +91,7 @@ public class Board : MonoBehaviour
     /// Dictionary converting directions to vectors of logical positions
     /// </summary>
     /// <value>4 cardinal directions</value>
+    [System.NonSerialized]
     public Dictionary<Direction, Vector2Int> logicalDirections = new Dictionary<Direction, Vector2Int>
     {
         {Direction.North, new Vector2Int(0,-1)},
@@ -115,9 +122,9 @@ public class Board : MonoBehaviour
     
     private bool _justflipped;
 
-    public GameObject orbCount;
+    private GameObject orbCount;
     
-    public GameObject orbMessage;
+    private GameObject orbMessage;
 
 
     private void Awake()
@@ -126,6 +133,8 @@ public class Board : MonoBehaviour
         bearPrefab = gm.bearPrefab;
         orbPrefab = gm.orbPrefab;
         tilePrefab = gm.tilePrefab;
+        orbCount = gm.orbCount;
+        orbMessage = gm.orbMessage;
     }
 
     /// <summary>
@@ -138,11 +147,13 @@ public class Board : MonoBehaviour
             DestroyImmediate(tile);
         }
 
+        if (orbs != null)
         foreach (var orb in orbs)
         {
-            DestroyImmediate(orb);
+            if (orb != null) DestroyImmediate(orb);
         }
 
+        if (characters != null)
         foreach (var character in characters)
         {
             DestroyImmediate(character);
@@ -335,7 +346,7 @@ public class Board : MonoBehaviour
 
         orbCount.GetComponent<OrbCountUI>().Increment();
 
-        orbMessage.GetComponent<OrbMessageUI>().Display(this.messages[_messageIndex]);
+        orbMessage.GetComponent<OrbMessageUI>().Display(this.messages[_messageIndex], 3);
         _messageIndex++;
     }
 

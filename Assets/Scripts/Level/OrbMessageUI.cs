@@ -9,21 +9,33 @@ public class OrbMessageUI : MonoBehaviour
 
     private Animator animationController;
 
+    public Queue<(string, float)> messageQueue = new Queue<(string, float)>();
+
     private void Awake()
     {
         animationController = gameManager.GetComponent<GameManager>().orbMessageUIAnimator;
-        GetComponent<Text>().text = "";
     }
 
-    public void Display(string message)
+    /// <summary>
+    /// Queues the message for the UI to display after the current display is over
+    /// </summary>
+    /// <param name="message">Message for the UI</param>
+    /// <param name="duration">Duration of the message</param>
+    public void Display(string message, float duration)
     {
-        var text = GetComponent<Text>().text = message;
+        messageQueue.Enqueue((message, duration));
         animationController.SetTrigger("Appear");
-        
-        // let the UI fade after some time
+    }
+
+    /// <summary>
+    /// Initiates a coroutine that will trigger the disappear trigger after some time
+    /// </summary>
+    /// <param name="duration">Time before triggering the disappear trigger</param>
+    public void FadeAfter(float duration)
+    {
         IEnumerator Fade()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(duration);
             animationController.SetTrigger("Disappear");
         }
         StartCoroutine(Fade());
