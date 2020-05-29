@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Script attached to the pause menu UI, contains listeners to UI buttons
@@ -49,6 +50,8 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Pause()
     {
+        this.gameManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("Paused");
+
         this.GameIsPaused = true;
         Time.timeScale = 0;
 
@@ -60,6 +63,8 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Resume()
     {
+        this.gameManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+
         this.GameIsPaused = false;
         Time.timeScale = 1;
 

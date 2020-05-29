@@ -270,6 +270,33 @@
             ]
         },
         {
+            "name": "Paused",
+            "id": "8ac35d5d-c012-4301-bd61-74f141b55fbc",
+            "actions": [
+                {
+                    "name": "Resume",
+                    "type": "Button",
+                    "id": "5bc8fb9f-7782-4c30-a8c8-9aef339b3f92",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4a799ceb-10a7-438a-a657-d058e4d8bee1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Resume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "4c3835ed-fba4-4bbc-b496-0a8519223168",
             "actions": [
