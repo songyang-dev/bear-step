@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Script attached to an empty and handles player inputs. Also provides functions
+/// to move game objects in the scene, such as tiles and the player.
+/// </summary>
 public class GameManager : MonoBehaviour
 {   
+    public string levelScene;
+    public string menuScene;
+
     /// <summary>
     /// Reference to the scene's board
     /// </summary>
@@ -40,22 +47,62 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private bool _movingBear = false;
     
+    /// <summary>
+    /// Prefab of the bear
+    /// </summary>
     public GameObject bearPrefab;
 
+    /// <summary>
+    /// Prefab of the orb
+    /// </summary>
     public GameObject orbPrefab;
 
+    /// <summary>
+    /// Prefab of the tile
+    /// </summary>
     public GameObject tilePrefab;
 
+    /// <summary>
+    /// Reference to the orb message animator
+    /// </summary>
     public Animator orbMessageUIAnimator;
 
-    public GameObject orbCount;
+    /// <summary>
+    /// Reference to the orb count UI
+    /// </summary>
+    public GameObject orbCountUI;
 
-    public GameObject orbMessage;
+    /// <summary>
+    /// Reference to the orb message UI
+    /// </summary>
+    public GameObject orbMessageUI;
+    
+    /// <summary>
+    /// Reference to the panel of the pause menu canvas
+    /// </summary>
+    public GameObject pauseMenuUI;
 
+    /// <summary>
+    /// How many tiles are currently moving
+    /// </summary>
+    /// <value></value>
     public int MovingTile { get => _movingTile; private set => _movingTile = value;}
-    public bool Flipping { get => _flipping; private set => _flipping = value;}
-    public bool MovingBear { get => _movingBear; set => _movingBear = value; }
 
+    /// <summary>
+    /// Whether the board is moving
+    /// </summary>
+    /// <value></value>
+    public bool Flipping { get => _flipping; private set => _flipping = value;}
+
+    /// <summary>
+    /// Whether the bear is moving
+    /// </summary>
+    /// <value></value>
+    public bool MovingBear { get => _movingBear; private set => _movingBear = value; }
+
+    /// <summary>
+    /// Enum of flags telling which flag to release when a movement is done
+    /// </summary>
     enum Lock {Flip, Bear, Tile}
 
     /// <summary>

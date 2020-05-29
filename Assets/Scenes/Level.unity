@@ -128,6 +128,59 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_ActionsAsset
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_PointAction
+      value: 
+      objectReference: {fileID: 785077761831914196, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_MoveAction
+      value: 
+      objectReference: {fileID: 7864600319677709607, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_SubmitAction
+      value: 
+      objectReference: {fileID: -2429844772162364110, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_CancelAction
+      value: 
+      objectReference: {fileID: -3171329744750511373, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_LeftClickAction
+      value: 
+      objectReference: {fileID: 2106604401181868528, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_MiddleClickAction
+      value: 
+      objectReference: {fileID: -4755868056944046370, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_RightClickAction
+      value: 
+      objectReference: {fileID: 8395830345262720008, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
+    - target: {fileID: 209759714812377861, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
+        type: 3}
+      propertyPath: m_ScrollWheelAction
+      value: 
+      objectReference: {fileID: -3535963809493828784, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+        type: 3}
     - target: {fileID: 209759715065034550, guid: ed5aa6ebccf24ac4b9dd5887b84278f6,
         type: 3}
       propertyPath: m_LocalPosition.x

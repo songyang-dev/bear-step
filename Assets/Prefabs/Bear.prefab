@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8683676615463433913}
   - component: {fileID: 800081202199837904}
   - component: {fileID: 4542812072791432218}
+  - component: {fileID: 1921400761561400861}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -109,6 +110,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDuration: 0.5
   moveDistance: 1
-  board: {fileID: 0}
   logicalPosition: {x: 0, y: 0}
   gameManager: {fileID: 0}
+--- !u!95 &1921400761561400861
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560112177816658897}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dff6fb800e699a54b8b50681ac2e3416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

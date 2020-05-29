@@ -106,6 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c622a823f4ca0634292c621743efb05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 1
-  moveDuration: 1
+  stateChangeDistance: 1
+  stateChangeDuration: 1
   gameManager: {fileID: 0}

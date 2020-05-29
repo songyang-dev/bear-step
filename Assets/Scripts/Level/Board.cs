@@ -15,9 +15,14 @@ public enum Direction
     West
 }
 
+/// <summary>
+/// Script attached to the board, handles board creation and game logic
+/// </summary>
 public class Board : MonoBehaviour
 {
-
+    /// <summary>
+    /// Reference to the game manager
+    /// </summary>
     public GameObject gameManager;
 
     /// <summary>
@@ -120,21 +125,32 @@ public class Board : MonoBehaviour
     /// </summary>
     private bool _flipping = false;
     
+    /// <summary>
+    /// Flag to know if the last move was a flip
+    /// </summary>
     private bool _justflipped;
 
-    private GameObject orbCount;
+    /// <summary>
+    /// Reference to the orb count UI
+    /// </summary>
+    private GameObject orbCountUI;
     
-    private GameObject orbMessage;
+    /// <summary>
+    /// Reference to the orb message UI
+    /// </summary>
+    private GameObject orbMessageUI;
 
-
+    /// <summary>
+    /// Sets game object references
+    /// </summary>
     private void Awake()
     {
         var gm = gameManager.GetComponent<GameManager>();
         bearPrefab = gm.bearPrefab;
         orbPrefab = gm.orbPrefab;
         tilePrefab = gm.tilePrefab;
-        orbCount = gm.orbCount;
-        orbMessage = gm.orbMessage;
+        orbCountUI = gm.orbCountUI;
+        orbMessageUI = gm.orbMessageUI;
     }
 
     /// <summary>
@@ -261,7 +277,7 @@ public class Board : MonoBehaviour
                 Quaternion.Euler(-90, 0, 0), parent);
         }
 
-        orbCount.GetComponent<OrbCountUI>().InitiateCount(orbs.Length);
+        orbCountUI.GetComponent<OrbCountUI>().InitiateCount(orbs.Length);
     }
 
     /// <summary>
@@ -344,9 +360,9 @@ public class Board : MonoBehaviour
         Debug.Log(this.messages[_messageIndex]);
         
 
-        orbCount.GetComponent<OrbCountUI>().Increment();
+        orbCountUI.GetComponent<OrbCountUI>().Increment();
 
-        orbMessage.GetComponent<OrbMessageUI>().Display(this.messages[_messageIndex], 3);
+        orbMessageUI.GetComponent<OrbMessageUI>().Display(this.messages[_messageIndex], 3);
         _messageIndex++;
     }
 
@@ -470,6 +486,10 @@ public class Board : MonoBehaviour
         );
     }
 
+    /// <summary>
+    /// Listener of the event of flipping the board
+    /// </summary>
+    /// <param name="context"></param>
     public void Flip(InputAction.CallbackContext context)
     {
         if (context.performed)
