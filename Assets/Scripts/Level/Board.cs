@@ -140,6 +140,8 @@ public class Board : MonoBehaviour
     /// </summary>
     private GameObject orbMessageUI;
 
+    private GameObject pauseMenuUI;
+
     /// <summary>
     /// Sets game object references
     /// </summary>
@@ -151,6 +153,7 @@ public class Board : MonoBehaviour
         tilePrefab = gm.tilePrefab;
         orbCountUI = gm.orbCountUI;
         orbMessageUI = gm.orbMessageUI;
+        pauseMenuUI = gm.pauseMenuUI;
     }
 
     /// <summary>
@@ -316,6 +319,7 @@ public class Board : MonoBehaviour
     /// <param name="context">Unity input system context</param>
     public void MoveAllPlayers(InputAction.CallbackContext context)
     {
+        if (pauseMenuUI.GetComponentInParent<PauseMenu>().GameIsPaused) return;
 
         foreach (var player in characters)
         {
@@ -492,6 +496,8 @@ public class Board : MonoBehaviour
     /// <param name="context"></param>
     public void Flip(InputAction.CallbackContext context)
     {
+        if (pauseMenuUI.GetComponentInParent<PauseMenu>().GameIsPaused) return;
+
         if (context.performed)
         {
             Flip();

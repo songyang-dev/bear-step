@@ -45,12 +45,16 @@ public class PauseMenu : MonoBehaviour
         this.menuScene = gm.menuScene;
     }
 
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed) Pause();
+    }
+
     /// <summary>
     /// Pauses the game and freezes time
     /// </summary>
     public void Pause()
     {
-        this.gameManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("Paused");
 
         this.GameIsPaused = true;
         Time.timeScale = 0;
@@ -63,12 +67,22 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Resume()
     {
-        this.gameManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
-
         this.GameIsPaused = false;
         Time.timeScale = 1;
 
         pauseMenuUI.SetActive(false);
+    }
+
+    /// <summary>
+    /// Listener to the event of pressing the pause key again
+    /// </summary>
+    /// <param name="context"></param>
+    public void Resume(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (this.GameIsPaused == true) Resume();
+        }
     }
 
     /// <summary>

@@ -17,7 +17,7 @@ namespace Tests
             var ui = root.GetComponentInChildren<OrbMessageUI>();
 
             ui.Display("Test 1", 1f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             Assert.AreEqual("Test 1", ui.GetComponent<Text>().text, $"Text is not the same: {ui.GetComponent<Text>().text}");
         }
     }

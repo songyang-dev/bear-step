@@ -50,7 +50,7 @@ public class Bear : MonoBehaviour
     /// <returns></returns>
     public Vector2Int logicalPosition = new Vector2Int();
 
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     /// <summary>
     /// Sets the references to the board and the player's logical position

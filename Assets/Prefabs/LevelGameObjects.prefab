@@ -235,7 +235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759713174653460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878b0ceb29d589b47ba1bd569e727e54, type: 3}
+  m_Script: {fileID: 11500000, guid: 3032f2dacb46b5647a736c50720ebbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 209759713306990166}
@@ -249,7 +249,7 @@ Animator:
   m_GameObject: {fileID: 209759713174653460}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4f5778b71e5931945a619d8ffb1c4016, type: 2}
+  m_Controller: {fileID: 9100000, guid: b4bf89bbf4b95664bb93fe51c9db9d5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759713306990166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3ce8202bf56ef740bd6ba38b8dad908, type: 3}
+  m_Script: {fileID: 11500000, guid: 012f1a400a8b1d547a93cc570014da64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelScene: Level
@@ -308,11 +308,11 @@ MonoBehaviour:
   cam: {fileID: 209759714762674641}
   test: 1
   testLevel: Test/pool
-  bearPrefab: {fileID: 3560112177816658897, guid: 7547c7075f9c24843a1f7088bffceda6,
+  bearPrefab: {fileID: 3560112177816658897, guid: ba0bfb836988ba14f89dd8912b7e0212,
     type: 3}
-  orbPrefab: {fileID: 118317355310076960, guid: 7a092294ec100e840866801350740ae8,
+  orbPrefab: {fileID: 118317355310076960, guid: 1dd05425e5b089044bca812b589e8ab6,
     type: 3}
-  tilePrefab: {fileID: 2120793455244450866, guid: 1b94055a504691a4ab6b0db681f290bd,
+  tilePrefab: {fileID: 2120793455244450866, guid: e012ed884888f2e46ba24f53d8e6c84e,
     type: 3}
   orbMessageUIAnimator: {fileID: 209759713174653462}
   orbCountUI: {fileID: 209759713358945535}
@@ -330,10 +330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_Actions: {fileID: -944628639613478452, guid: a0f695eacc942e0428bac6943e601852,
     type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 209759714812377861}
+  m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -358,7 +358,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: e8e6d596-cee9-4aba-a58f-45ea36ddf38b
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 209759714762674642}
@@ -373,7 +373,67 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 48867ebc-d90d-4998-b7dc-b103fda96228
-    m_ActionName: Player/Look[/Mouse/delta]
+    m_ActionName: Player/Look[/Mouse/delta,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 209759714762674642}
+        m_MethodName: Center
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ce406396-c57e-4efd-8c9a-be748e6dd65a
+    m_ActionName: Player/Center[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 209759714267358919}
+        m_MethodName: Flip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6ab0eeb4-ea81-4a92-91ac-7eed97b8e169
+    m_ActionName: Player/Flip[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8630062044532185553}
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9dcef6a7-dbf0-462f-bd53-f4270f44ee1d
+    m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8630062044532185553}
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5bc8fb9f-7782-4c30-a8c8-9aef339b3f92
+    m_ActionName: Paused/Resume[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 97419260-0e0c-4b3e-b63d-718b5404b129
@@ -414,71 +474,11 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bacfef06-0460-4d29-9b56-22793a3855df
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 209759714762674642}
-        m_MethodName: Center
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ce406396-c57e-4efd-8c9a-be748e6dd65a
-    m_ActionName: Player/New action
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 209759714267358919}
-        m_MethodName: Flip
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6ab0eeb4-ea81-4a92-91ac-7eed97b8e169
-    m_ActionName: Player/Flip[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9dcef6a7-dbf0-462f-bd53-f4270f44ee1d
-    m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
-        m_MethodName: Resume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5bc8fb9f-7782-4c30-a8c8-9aef339b3f92
-    m_ActionName: Paused/Resume[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 209759714762674640}
+  m_Camera: {fileID: 0}
 --- !u!1 &209759713358945535
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759713358945535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6e83c6fd8523447956551d3b769f69, type: 3}
+  m_Script: {fileID: 11500000, guid: f1f8d1d0a9530614b80edb3afb19c470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &209759714239830179
@@ -710,7 +710,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759714267358916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2845cd0cb96ab1e43810d89c40bdcedc, type: 3}
+  m_Script: {fileID: 11500000, guid: 56df56da616c14846899fb5f6558c199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 209759713306990166}
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759714762674641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948c4504c34e40a4a844035b6fc19440, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c2887d852205b640ad285574d9ed2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0.1800001, y: -1.86, z: -5.08}
@@ -983,27 +983,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_PointAction: {fileID: 785077761831914196, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_MoveAction: {fileID: 7864600319677709607, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_SubmitAction: {fileID: -2429844772162364110, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_CancelAction: {fileID: -3171329744750511373, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_LeftClickAction: {fileID: 2106604401181868528, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_MiddleClickAction: {fileID: -4755868056944046370, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_RightClickAction: {fileID: 8395830345262720008, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_ScrollWheelAction: {fileID: -3535963809493828784, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: -5061805944722407372, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: -2954800819330943607, guid: 90d0f2ab9f936f94d9b8d553c16207c1,
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 1524242227743908214}
   - component: {fileID: 530135267533413088}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Pause Menu UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3005395546033779974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17f7e195492c90c4290240959be5fe34, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d89a3fef42a55847b9fd8b19763fbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsPaused: 0

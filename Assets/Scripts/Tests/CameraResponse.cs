@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEngine.InputSystem;
 
 namespace Tests
 {
-    [TestFixture]
     public class CameraResponse : LevelSceneSetUp
     {
-        private InputTestFixture input = new InputTestFixture();
 
         /// <summary>
         /// Tests whether the camera responds to movement commands

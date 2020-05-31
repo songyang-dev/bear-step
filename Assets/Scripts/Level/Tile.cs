@@ -50,7 +50,7 @@ public class Tile : MonoBehaviour
     /// <summary>
     /// Reference to the game manager script
     /// </summary>
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     /// <summary>
     /// Internal flag for telling if the tile is lowering
