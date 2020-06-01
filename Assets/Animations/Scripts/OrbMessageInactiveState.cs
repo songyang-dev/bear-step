@@ -8,9 +8,23 @@ public class OrbMessageInactiveState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        var orbMessageUI = animator.GetComponent<OrbMessageUI>();
+
         animator.GetComponent<Text>().text = "";
-        if (animator.GetComponent<OrbMessageUI>().messageQueue.Count > 0)
+        if (orbMessageUI.messageQueue.Count > 0)
             animator.SetTrigger("Appear");
+        
+        // no more messages left, check for win condition
+        else
+        {
+            var gm = orbMessageUI.gameManager.GetComponent<GameManager>();
+            var orbCountUI = gm.orbCountUI.GetComponent<OrbCountUI>();
+
+            if (orbCountUI.hasWon)
+            {
+                gm.winLevel.Invoke();
+            }
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

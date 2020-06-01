@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 /// <summary>
 /// Script attached to an empty and handles player inputs. Also provides functions
@@ -81,6 +82,16 @@ public class GameManager : MonoBehaviour
     /// Reference to the panel of the pause menu canvas
     /// </summary>
     public GameObject pauseMenuUI;
+    
+    /// <summary>
+    /// Reference to the panel of the win menu canvas
+    /// </summary>
+    public GameObject winMenuUI;
+
+    /// <summary>
+    /// Event of winning the level
+    /// </summary>
+    public UnityEvent winLevel;
 
     /// <summary>
     /// How many tiles are currently moving

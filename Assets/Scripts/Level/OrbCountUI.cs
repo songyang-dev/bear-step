@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class OrbCountUI : MonoBehaviour
     private int totalCount;
 
     private int currentCount;
+
+    public bool hasWon = false;
 
     public void InitiateCount(int count)
     {
@@ -20,6 +23,8 @@ public class OrbCountUI : MonoBehaviour
     {
         this.currentCount++;
         ChangeDisplay();
+
+        if (totalCount == currentCount) hasWon = true;
     }
 
     private void ChangeDisplay()
