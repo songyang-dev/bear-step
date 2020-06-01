@@ -1,0 +1,33 @@
+{
+    "Name":"row of orbs",
+    "Dimension": [5,1],
+    "Start": [
+        {
+            "Name": "bear",
+            "Coord": [0,0]
+        }
+    ],
+    "Tiles": [
+        2,2,2,2,2
+    ],
+    "Orbs": [
+        {
+            "Coord":[1,0]
+        },
+        {
+            "Coord":[2,0]
+        },
+        {
+            "Coord":[3,0]
+        },
+        {
+            "Coord":[4,0]
+        }
+    ],
+    "Messages": [
+        "Orb 1",
+        "Orb 2",
+        "Orb 3",
+        "Orb 4"
+    ]
+}

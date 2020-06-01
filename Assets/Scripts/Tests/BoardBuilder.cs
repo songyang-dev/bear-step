@@ -40,5 +40,11 @@ namespace Tests
         {
             yield return BuildLevel("Test/pool", 20, 3);
         }
+
+        [UnityTest]
+        public IEnumerator BuildOrbRow()
+        {
+            yield return BuildLevel("Test/orbRow", 5, 4);
+        }
     }
 }

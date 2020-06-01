@@ -8,7 +8,9 @@ public class OrbMessageInactiveState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       animator.GetComponent<Text>().text = "";
+        animator.GetComponent<Text>().text = "";
+        if (animator.GetComponent<OrbMessageUI>().messageQueue.Count > 0)
+            animator.SetTrigger("Appear");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -20,10 +22,10 @@ public class OrbMessageInactiveState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       (string message, float duration) = animator.GetComponent<OrbMessageUI>().messageQueue.Dequeue();
-       animator.GetComponent<Text>().text = message;
+        (string message, float duration) = animator.GetComponent<OrbMessageUI>().messageQueue.Dequeue();
+        animator.GetComponent<Text>().text = message;
 
-       animator.GetComponent<OrbMessageUI>().FadeAfter(duration);
+        animator.GetComponent<OrbMessageUI>().FadeAfter(duration);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
