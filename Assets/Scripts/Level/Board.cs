@@ -479,7 +479,7 @@ public class Board : MonoBehaviour
 
         float speed = flipDistance / flipDuration;
 
-        _flipCoroutine = gameManager.GetComponent<GameManager>().Flip(
+        _flipCoroutine = gameManager.GetComponent<GameManager>().navigator.Flip(
             flipDuration, speed, this,
             () => _flipping = true,
             () => {

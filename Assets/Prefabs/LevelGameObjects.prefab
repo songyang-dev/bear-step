@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScene: Level
-  menuScene: 
+  menuScene: Main Menu
   board: {fileID: 209759714267358916}
   cam: {fileID: 209759714762674641}
   test: 1

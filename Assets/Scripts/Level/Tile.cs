@@ -110,7 +110,7 @@ public class Tile : MonoBehaviour
         var speed = stateChangeDistance / stateChangeDuration;
 
         // physically lower the tile
-        _movingCoroutine = gameManager.LowerTile(stateChangeDuration, speed, tileStatePositions[TileState.Down],
+        _movingCoroutine = gameManager.navigator.LowerTile(stateChangeDuration, speed, tileStatePositions[TileState.Down],
             this.transform,
             () => { Lowering = true; }, // before
             () => // after

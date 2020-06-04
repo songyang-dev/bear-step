@@ -87,7 +87,7 @@ public class Bear : MonoBehaviour
 
         float speed = moveDistance / moveDuration;
 
-        _movingCoroutine = gameManager.PlayerMove(moveDuration, speed, destination, this.transform,
+        _movingCoroutine = gameManager.navigator.PlayerMove(moveDuration, speed, destination, this.transform,
             () => {_going = direction;}, // before
             () =>
             {
