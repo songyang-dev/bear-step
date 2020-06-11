@@ -1,17 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+/// <summary>
+/// Script that controls the camera, including setting limits to its position
+/// </summary>
 public class CameraController : MonoBehaviour
 {
 
     /// <summary>
-    /// Limits of the camera's positions
+    /// Limits object positions, each limit is the camera's centered position on an 'edged' object
     /// </summary>
     /// <typeparam name="Direction">The limit's direction</typeparam>
-    /// <typeparam name="float">Coordinate component value of the direction's limit</typeparam>
+    /// <typeparam name="float">World space location</typeparam>
     /// <returns></returns>
     private Dictionary<Direction, float> limits = new Dictionary<Direction, float>(4);
+
+    /// <summary>
+    /// Positions of the furthest game coordinates in the scene
+    /// </summary>
+    /// <typeparam name="Direction">Direction furthest away to</typeparam>
+    /// <typeparam name="Vector3">World coordinate</typeparam>
+    /// <returns></returns>
+    private Dictionary<Direction, Vector3> edgeCoordinates = new Dictionary<Direction, Vector3>(4);
 
     /// <summary>
     /// Original position of the camera compared to the player
@@ -29,9 +42,9 @@ public class CameraController : MonoBehaviour
     public GameObject gameManager;
 
     /// <summary>
-    /// Board gameobject of the scene
+    /// Board of the scene
     /// </summary>
-    private GameObject _board;
+    private Board _board;
 
     /// <summary>
     /// Movement direction that is temporarily stored
@@ -43,49 +56,75 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public float speed;
 
+    /// <summary>
+    /// Camera component
+    /// </summary>
+    private Camera _camera;
+
     private void Awake()
     {
-        _board = gameManager.GetComponent<GameManager>().board;
+        _board = gameManager.GetComponent<GameManager>().board.GetComponent<Board>();
+        _camera = this.GetComponent<Camera>();
     }
 
     /// <summary>
     /// Sets up where the camera starts and its limits
     /// </summary>
     /// <param name="json">Serialized json class of the level</param>
-    public void SetUp(JSONLevel json)
+    public void SetUp()
     {
-        var _board = this._board.GetComponent<Board>();
-
+        
+        // reinitialize the limits
         limits.Clear();
-
-        // north and west boundaries are always the same
-        limits.Add(Direction.North, offset.y + 2);
-        limits.Add(Direction.West, offset.x - 2);
-
-        // south boundary is in the -y direction
-        limits.Add(Direction.South,
-            offset.y - _board.boardDimension[1]/2);
-
-        // east boundary is in the +x direction
-        limits.Add(Direction.East,
-            offset.x + _board.boardDimension[0]);
+        
+        FindEdgeCoordinates();
+        CalculateLimits();
 
         // center camera
         Center();
     }
 
     /// <summary>
-    /// Listener to the event of moving the camera
+    /// Computes the limits of the camera's position in world space
+    /// </summary>
+    private void CalculateLimits()
+    {
+        // Determine the limits of the camera in viewport screen space
+
+        // southern limit is the most negative y coordinate for the camera
+        this.limits.Add(Direction.South,
+            (this.edgeCoordinates[Direction.South] + this.offset).y
+        );
+
+        // northern limit is the most positive y coordinate for the camera
+        this.limits.Add(Direction.North, 
+            (this.edgeCoordinates[Direction.North] + this.offset).y
+        );
+
+        // western limit is the most negative x coordinate for the camera
+        this.limits.Add(Direction.West, 
+            (this.edgeCoordinates[Direction.West] + this.offset).x
+        );
+
+        // eastern limit is the most positive x coordinate for the camera
+        this.limits.Add(Direction.East,
+            (this.edgeCoordinates[Direction.East] + this.offset).x
+        );
+    }
+
+    /// <summary>
+    /// Listener to the event of moving the camera, applies limits when stops moving
     /// </summary>
     /// <param name="context"></param>
     public void Move(InputAction.CallbackContext context)
     {
         _moving = context.action.ReadValue<Vector2>();
-        //Debug.Log(_moving);
+        
+        if (_moving.Equals(Vector2.zero)) ApplyLimits();
     }
 
     /// <summary>
-    /// Moves the camera according to the field _moving, applies limits after
+    /// Moves the camera according to the field _moving
     /// </summary>
     public void Move()
     {
@@ -95,7 +134,6 @@ public class CameraController : MonoBehaviour
             _moving.y * speed * Time.deltaTime, 0);
 
         this.transform.Translate(change, Space.World);
-        ApplyLimits();
     }
 
     /// <summary>
@@ -112,14 +150,32 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// Restrict the position of the camera within the board
+    /// Restricts the position of the camera within the board. 
     /// </summary>
     private void ApplyLimits()
     {
-        var current = this.transform.position;
-        current.x = Mathf.Clamp(current.x, limits[Direction.West], limits[Direction.East]);
-        current.y = Mathf.Clamp(current.y, limits[Direction.South], limits[Direction.North]);
-        this.transform.position = current;
+        var clamped = this.transform.position;
+        clamped.x = Mathf.Clamp(clamped.x, this.limits[Direction.West], this.limits[Direction.East]);
+        clamped.y = Mathf.Clamp(clamped.y, this.limits[Direction.South], this.limits[Direction.North]);
+        this.transform.position = clamped;
+    }
+
+    /// <summary>
+    /// Calculates where the furthest coordinates are located
+    /// </summary>
+    private void FindEdgeCoordinates()
+    {
+        var boardDimension = _board.GetComponent<Board>().boardDimension;
+
+        // always 0 in y coordinate
+        this.edgeCoordinates.Add(Direction.South, new Vector3(0, 0, 0));
+        // in the +y direction in world space
+        this.edgeCoordinates.Add(Direction.North, new Vector3(0, boardDimension[1] - 1, 0));
+
+        // always 0 in x coordinate
+        this.edgeCoordinates.Add(Direction.West, new Vector3(0, 0, 0));
+        // in the +x direction in world space
+        this.edgeCoordinates.Add(Direction.East,new Vector3(boardDimension[0] - 1, 0, 0));
     }
 
     /// <summary>

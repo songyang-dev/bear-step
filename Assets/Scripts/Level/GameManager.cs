@@ -121,10 +121,9 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Sets up where the camera starts and its limits
     /// </summary>
-    /// <param name="json">Serialized json class of the level</param>
-    private void SetUpCamera(JSONLevel json)
+    private void SetUpCamera()
     {
-        cam.GetComponent<CameraController>().SetUp(json);
+        cam.GetComponent<CameraController>().SetUp();
     }
 
     /// <summary>
@@ -141,7 +140,7 @@ public class GameManager : MonoBehaviour
 
         // Start building the level board
         SetUpBoard(json);
-        SetUpCamera(json);
+        SetUpCamera();
     }
 
     /// <summary>
