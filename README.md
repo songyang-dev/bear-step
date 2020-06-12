@@ -2,11 +2,11 @@
 A puzzle game based on stepping on a board. Initially just a game jam submission ([Diyuse/GameJam2020](https://github.com/Diyuse/GameJam2020)), this game revolves around the concept of consequence for each move.
 
 # Getting Started
-These instructions will get you the source code necessary to build and develop the game. ATTENTION: I frequently delete this repository due to development problems.
+These instructions will get you the source code necessary to build and develop the game.
 
 ## Prerequisities
 These software need to be installed:
-* Unity, preferably 2019.3.15f1
+* Unity, preferably 2019.4.0f1
   * Special packages to have: Input System (version 1.0.0 at least) and Test Runner (verified version at least)
 * IDE that supports C# and Unity, e.g. Visual Studio, Visual Studio Code (recommended)
   * The necessary extensions and add-ons for that IDE: C# and Unity addons (recommended)
