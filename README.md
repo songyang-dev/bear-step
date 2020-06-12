@@ -12,7 +12,9 @@ These software need to be installed:
   * The necessary extensions and add-ons for that IDE: C# and Unity addons (recommended)
 
 ## Building
-Use the in-built Unity builder for the game. There is no special instructions for now.
+Use the in-built Unity builder for the game. Scenes to be included in the build path are
+* Level
+* Main Menu
 
 ## Running
 Either run the game in the Unity editor, or run the executable built in previous step.
