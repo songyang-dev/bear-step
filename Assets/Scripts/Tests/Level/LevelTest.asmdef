@@ -1,5 +1,5 @@
 {
-    "name": "Tests",
+    "name": "LevelTest",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",

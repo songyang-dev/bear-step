@@ -52,12 +52,23 @@ namespace Tests
             Assert.AreEqual(0, Time.timeScale, "Time not frozen");
             Assert.True(menuObject.activeInHierarchy, "Menu does not appear");
 
-            var currentScene = SceneManager.GetActiveScene().name;
-
             pauseMenu.Menu();
+            yield return null;
 
-            Assert.AreEqual(currentScene, SceneManager.GetActiveScene().name, "Scene did not change");
+            // level scene tear down 
+            //GameObject.Destroy(root);
 
+            var thisScene = SceneManager.GetActiveScene().name;
+
+            Assert.AreEqual("Main Menu", thisScene, "Scene did not change to Main Menu");
+
+            MenuTearDown();
+        }
+
+        private void MenuTearDown()
+        {
+            var menu = GameObject.Find("MainMenuObjects");
+            GameObject.Destroy(menu);
         }
     }
 }
