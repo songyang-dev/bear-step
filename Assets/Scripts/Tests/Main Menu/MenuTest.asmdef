@@ -3,7 +3,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Level",
+        "Menu",
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
         "Unity.InputSystem.IntegrationTests"
