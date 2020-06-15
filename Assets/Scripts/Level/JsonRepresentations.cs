@@ -104,10 +104,10 @@ public class JSONOrb
             throw new System.ArgumentException("Orb coordinate array does not have length 2, but " + Coord.Length);
 
         if (Coord[0] < 0 || Coord[1] < 0)
-            throw new System.ArgumentException("Orb coords are negative");
+            throw new System.ArgumentException($"Orb coords are negative: {Coord[0]}, {Coord[1]}");
 
         if (Coord[0] >= dimension[0] || Coord[1] >= dimension[1])
-            throw new System.ArgumentException("Orb coords are out of bounds");
+            throw new System.ArgumentException($"Orb coords are out of bounds: {Coord[0]}, {Coord[1]}");
     }
 }
 

@@ -1,0 +1,31 @@
+{
+    "Name": "tutorial",
+    "Dimension": [11,4],
+    "Start": [
+        {
+            "Name": "bear",
+            "Coord": [0,3]
+        }
+    ],
+    "Tiles": [
+        0, 0, 0, 0, 2, 2, 2, 2, 1, 1, 1,
+        0, 0, 0, 0, 2, 0, 0, 0, 1, 1, 1,
+        0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,
+        2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0
+    ],
+    "Orbs": [{
+        "Coord":[3,3]
+    },
+    {
+        "Coord":[4,0]
+    },
+    {
+        "Coord":[8,1]
+    }
+    ],
+    "Messages": [
+        "Hello my child.",
+        "Are you ready to leave yet?",
+        "Let's go."
+    ]
+}

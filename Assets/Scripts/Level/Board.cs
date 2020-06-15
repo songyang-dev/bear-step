@@ -228,7 +228,7 @@ public class Board : MonoBehaviour
             switch (json.Tiles[i])
             {
                 case 1:
-                    newTileZCoord = -1;
+                    newTileZCoord = 1;
                     break;
                 case 2:
                     newTileZCoord = 0;
@@ -239,7 +239,7 @@ public class Board : MonoBehaviour
 
             var newTile =
                 GameObject.Instantiate(tilePrefab, new Vector3(x, boardDimension[1] - y - 1, newTileZCoord),
-                    Quaternion.Euler(-90, 0, 0), this.transform);
+                    Quaternion.Euler(0, 0, 0), this.transform);
 
             // set its state
             switch (json.Tiles[i])
@@ -276,8 +276,9 @@ public class Board : MonoBehaviour
             var parent = tiles[orb.Coord[0], orb.Coord[1]].transform;
 
             orbs[i] = GameObject.Instantiate(orbPrefab,
-                new Vector3(orb.Coord[0], boardDimension[1] - orb.Coord[1] - 1, -1),
-                Quaternion.Euler(-90, 0, 0), parent);
+                new Vector3(0, 0, -1),
+                Quaternion.Euler(0, 0, 0), parent);
+            orbs[i].transform.localPosition = new Vector3(0, 0, -1);
         }
 
         orbCountUI.GetComponent<OrbCountUI>().InitiateCount(orbs.Length);
