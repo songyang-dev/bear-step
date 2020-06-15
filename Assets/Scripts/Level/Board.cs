@@ -273,7 +273,9 @@ public class Board : MonoBehaviour
         {
             // Get parent tile
             var orb = json.Orbs[i];
-            var parent = tiles[orb.Coord[0], orb.Coord[1]].transform;
+            var tile = tiles[orb.Coord[0], orb.Coord[1]];
+            if (tile == null) throw new System.Exception($"There is no tile on {orb.Coord[0]}, {orb.Coord[1]}");
+            var parent = tile.transform;
 
             orbs[i] = GameObject.Instantiate(orbPrefab,
                 new Vector3(0, 0, -1),

@@ -46,5 +46,11 @@ namespace Tests
         {
             yield return BuildLevel("Test/orbRow", 5, 4);
         }
+
+        [UnityTest]
+        public IEnumerator CampaignTutorial()
+        {
+            yield return BuildLevel("Campaign/Tutorial", 22, 3);
+        }
     }
 }
