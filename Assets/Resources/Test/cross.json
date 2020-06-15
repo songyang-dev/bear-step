@@ -17,6 +17,9 @@
         "Coord":[0,1]
     }],
     "Messages": [
-        "Good job"
+        {
+            "Message":"Good job",
+            "Duration": 3
+        }
     ]
 }

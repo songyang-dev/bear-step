@@ -25,9 +25,21 @@
         }
     ],
     "Messages": [
-        "Orb 1",
-        "Orb 2",
-        "Orb 3",
-        "Orb 4"
+        {
+            "Message": "Orb 1",
+            "Duration": 1
+        },
+        {
+            "Message": "Orb 2",
+            "Duration": 1
+        },
+        {
+            "Message": "Orb 3",
+            "Duration": 1
+        },
+        {
+            "Message": "Orb 4",
+            "Duration": 1
+        }
     ]
 }

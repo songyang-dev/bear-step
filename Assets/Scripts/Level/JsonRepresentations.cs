@@ -29,7 +29,7 @@ public class JSONLevel
     /// <summary>
     /// List of messages to display when an orb is collected
     /// </summary>
-    public string[] Messages;
+    public JSONMessage[] Messages;
 
     /// <summary>
     /// Starting position of the board, if any
@@ -94,6 +94,9 @@ public class JSONLevel
 [System.Serializable]
 public class JSONOrb
 {
+    /// <summary>
+    /// Location on the board. [0,0] is the top left corner
+    /// </summary>
     public int[] Coord;
 
     public void Verify(int[] dimension)
@@ -132,6 +135,20 @@ public class JSONStart
 
         if (Coord[0] >= dimension[0] || Coord[1] >= dimension[1])
             throw new System.ArgumentException("Starting coords is out of bounds");
+    }
+}
+
+[System.Serializable]
+public class JSONMessage
+{
+    public string Message;
+
+    public float Duration;
+
+    public void Verify()
+    {
+        if (Duration <= 0)
+            throw new System.ArgumentException($"Duration of the message is negative: {Duration}");
     }
 }
 

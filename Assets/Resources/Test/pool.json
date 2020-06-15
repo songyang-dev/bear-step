@@ -24,8 +24,17 @@
     }
     ],
     "Messages": [
-        "First orb picked",
-        "Second orb picked",
-        "Third orb picked"
+        {
+            "Message": "First orb picked",
+            "Duration": 4
+        },
+        {
+            "Message": "Second orb picked",
+            "Duration": 4
+        },
+        {
+            "Message": "Third orb picked",
+            "Duration": 4
+        }
     ]
 }

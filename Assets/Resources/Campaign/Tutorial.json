@@ -24,8 +24,18 @@
     }
     ],
     "Messages": [
-        "Hello my child.",
-        "Are you ready to leave yet?",
-        "Let's go."
+        {
+            "Message": "Hello my child.",
+            "Duration": 4
+        },
+        {
+            "Message": "Are you ready to leave yet?",
+            "Duration": 4
+        },
+        {
+            "Message": "Let's go.",
+            "Duration": 3
+        }
+        
     ]
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System;
 
 /// <summary>
 /// Cardinal direction in the game
@@ -80,7 +81,7 @@ public class Board : MonoBehaviour
     /// List of messages read from json
     /// </summary>
     [System.NonSerialized]
-    public string[] messages;
+    public (string, float)[] messages;
 
     /// <summary>
     /// Used to track which message to display next
@@ -185,13 +186,27 @@ public class Board : MonoBehaviour
     /// <param name="json">Json data of the level</param>
     public void SetUp(JSONLevel json)
     {
-        this.messages = json.Messages;
+        SetUpMessages(json);
 
         SetUpTiles(json);
 
         SetUpOrbs(json);
 
         SetUpCharacters(json);
+    }
+
+    /// <summary>
+    /// Sets up the messages of the level
+    /// </summary>
+    /// <param name="json"></param>
+    private void SetUpMessages(JSONLevel json)
+    {
+        this.messages = new (string, float)[json.Messages.Length];
+
+        for (int i = 0; i < this.messages.Length; i++)
+        {
+            this.messages[i] = (json.Messages[i].Message, json.Messages[i].Duration);
+        }
     }
 
     /// <summary>
@@ -369,7 +384,8 @@ public class Board : MonoBehaviour
 
         orbCountUI.GetComponent<OrbCountUI>().Increment();
 
-        orbMessageUI.GetComponent<OrbMessageUI>().Display(this.messages[_messageIndex], 3);
+        (var message, var duration) = this.messages[_messageIndex];
+        orbMessageUI.GetComponent<OrbMessageUI>().Display(message, duration);
         _messageIndex++;
     }
 
