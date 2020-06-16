@@ -37,5 +37,18 @@
             "Duration": 3
         }
         
+    ],
+
+    "Tutorial": [
+        {
+            "Coord": [0,3],
+            "Message": "Move using WASD",
+            "Duration": 5
+        },
+        {
+            "Coord": [0,5],
+            "Message": "Move the view using arrow keys",
+            "Duration": 5
+        }
     ]
 }

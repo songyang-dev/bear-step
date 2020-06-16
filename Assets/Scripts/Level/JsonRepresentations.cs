@@ -37,6 +37,11 @@ public class JSONLevel
     public JSONStart[] Start;
 
     /// <summary>
+    /// Specific messages related to the tutorial
+    /// </summary>
+    public JSONTutorial[] Tutorial;
+
+    /// <summary>
     /// Verifies if the board is correct
     /// </summary>
     public void Verify()
@@ -91,6 +96,7 @@ public class JSONLevel
 
     }
 }
+
 [System.Serializable]
 public class JSONOrb
 {
@@ -138,6 +144,9 @@ public class JSONStart
     }
 }
 
+/// <summary>
+/// JSON representation of messages with durations
+/// </summary>
 [System.Serializable]
 public class JSONMessage
 {
@@ -152,3 +161,15 @@ public class JSONMessage
     }
 }
 
+/// <summary>
+/// JSON representation of special trigger points in the tutorial
+/// </summary>
+[System.Serializable]
+public class JSONTutorial
+{
+    public int[] Coord;
+
+    public string Message;
+
+    public float Duration;
+}
