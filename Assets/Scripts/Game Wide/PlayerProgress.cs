@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Class to keep track of the player's progress in the game
@@ -20,16 +21,32 @@ public class PlayerProgress
     /// </summary>
     private int _levelIndex;
 
+    public static PlayerProgress CurrentPlayer;
+
     /// <summary>
     /// Initiates a new player progress
     /// </summary>
     /// <param name="name">Name of the player/save file</param>
     public PlayerProgress(string name)
     {
+        // check for existing player
+        if (PlayerPrefs.HasKey(name))
+        {
+            _levelIndex = PlayerPrefs.GetInt($"{name}_levelIndex");
+        }
+        else
+        {
+            // new player
+            _levelIndex = 0;
+            PlayerPrefs.SetString(name, "");
+        }
+
+        // set fields
         _name = name;
         var json = Resources.Load<TextAsset>("Campaign/Campaign");
         _campaign = JsonUtility.FromJson<JSONCampaign>(json.text);
-        _levelIndex = 0;
+
+        CurrentPlayer = this;
     }
 
     /// <summary>
@@ -38,7 +55,8 @@ public class PlayerProgress
     /// <returns>Next level's name or null</returns>
     public string GetNextLevelName()
     {
-        try {
+        try
+        {
             return _campaign.Levels[_levelIndex + 1];
         }
         catch (System.IndexOutOfRangeException)
@@ -61,9 +79,21 @@ public class PlayerProgress
     /// </summary>
     public void MoveToNextLevel()
     {
-        _levelIndex++;
-        PlayerPrefs.SetInt($"{_name}_levelIndex", _levelIndex);
-        PlayerPrefs.Save();
+        var nextLevel = GetNextLevelName();
+        // if campaign is not over
+        if (null != nextLevel)
+        {
+            SceneManager.LoadScene(nextLevel);
+
+            _levelIndex++;
+            PlayerPrefs.SetInt($"{_name}_levelIndex", _levelIndex);
+            PlayerPrefs.Save();
+        }
+        // end of the campaign
+        else
+        {
+            // TODO
+        }
     }
 
     /// <summary>
@@ -72,5 +102,8 @@ public class PlayerProgress
     public void RemoveProgress()
     {
         PlayerPrefs.DeleteKey($"{_name}_levelIndex");
+        PlayerPrefs.DeleteKey(_name);
+
+        CurrentPlayer = null;
     }
 }

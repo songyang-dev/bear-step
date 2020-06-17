@@ -85,9 +85,15 @@ public class GameManager : MonoBehaviour
     public GameObject winMenuUI;
 
     /// <summary>
+    /// Reference to the button of "Next Level"
+    /// </summary>
+    public GameObject nextLevelButton;
+
+    /// <summary>
     /// Event of winning the level
     /// </summary>
     public UnityEvent winLevel;
+    
 
     /// <summary>
     /// Enum of flags telling which flag to release when a movement is done
@@ -102,10 +108,11 @@ public class GameManager : MonoBehaviour
         navigator = new Navigator(this);
 
         if (test) {
+            new PlayerProgress("test");
             Level(testLevel);
         }
         else {
-            Level(PlayerPrefs.GetString("level"));
+            Level(PlayerProgress.CurrentPlayer.GetCurrentLevelName());
         }
     }
 

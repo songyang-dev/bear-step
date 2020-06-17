@@ -8,15 +8,40 @@ public class WinMenuUI : MonoBehaviour
 
     public GameObject gameManager;
 
-    private GameObject winMenu;
+    private GameObject _winMenu;
+
+    private GameObject _nextLevelButton;
 
     private void Start()
     {
-        winMenu = gameManager.GetComponent<GameManager>().winMenuUI;
+        GameManager gm = gameManager.GetComponent<GameManager>();
+        _winMenu = gm.winMenuUI;
+        _nextLevelButton = gm.nextLevelButton;
+
+        ChangeNextLevelText();
+    }
+
+    private void ChangeNextLevelText()
+    {
+        // Change the next level button text if it is the last level
+        PlayerProgress currentPlayer = PlayerProgress.CurrentPlayer;
+        if (currentPlayer == null) return;
+
+        if (currentPlayer.GetNextLevelName() == null)
+        {
+            var text = _nextLevelButton.GetComponentInChildren<Text>();
+            text.text = "Levels Completed";
+        }
     }
 
     public void Show()
     {
-        winMenu.SetActive(true);
+        _winMenu.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
+        var player = PlayerProgress.CurrentPlayer;
+        player.MoveToNextLevel();
     }
 }
