@@ -16,7 +16,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void ExitButton()
     {
-
+        Application.Quit();
     }
 
     public void OptionsButton()
@@ -29,8 +29,10 @@ public class MainMenuUI : MonoBehaviour
 
     }
 
-    public void ContinueButton()
+    public void SaveSelectBackButton()
     {
-        
+        Main.SetActive(true);
+        SaveFileSelect.SetActive(false);
     }
+
 }

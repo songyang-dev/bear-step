@@ -1,8 +1,6 @@
 {
     "name": "GameWide",
-    "references": [
-        "GUID:cc30be4e3efa68645be52c30f42cd022"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
