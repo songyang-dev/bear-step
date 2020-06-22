@@ -11,7 +11,7 @@ public class Orb : MonoBehaviour
         //this.gameObject.SetActive(false);
         Destroy(this.gameObject);
 
-        board.touchOrb.Invoke();
+        board.TouchOrb.Invoke();
     }
 
 }

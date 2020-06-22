@@ -27,7 +27,7 @@ namespace Tests
 
                 Assert.AreNotEqual(initialPosition, player.transform.position, "Player did not move");
 
-                yield return new WaitForSeconds(player.moveDuration);
+                yield return new WaitForSeconds(player.MoveDuration);
 
                 Assert.AreEqual(initialPosition + player.directions[dir], player.transform.position, $"Player did not move {dir}");
             }
@@ -43,12 +43,12 @@ namespace Tests
             Assert.NotNull(player, "No player found");
 
             player.Move(Direction.South);
-            yield return new WaitForSeconds(player.moveDuration);
+            yield return new WaitForSeconds(player.MoveDuration);
             
             var initialPosition = player.transform.position;
 
             player.Move(Direction.North);
-            yield return new WaitForSeconds(player.moveDuration);
+            yield return new WaitForSeconds(player.MoveDuration);
 
             Assert.AreEqual(initialPosition, player.transform.position, "Player moved when it shouldn't");
         }
@@ -64,19 +64,19 @@ namespace Tests
             var player = root.GetComponentInChildren<Bear>();
             Assert.NotNull(player, "No player found");
 
-            var playerTileState = board.tiles[player.logicalPosition[0], player.logicalPosition[1]]
+            var playerTileState = board.tiles[player.LogicalPosition[0], player.LogicalPosition[1]]
                 .GetComponent<Tile>().State;
 
-            var neighborTileState = board.tiles[player.logicalPosition[0], player.logicalPosition[1] + 1]
+            var neighborTileState = board.tiles[player.LogicalPosition[0], player.LogicalPosition[1] + 1]
                 .GetComponent<Tile>().State;
 
             board.Flip();
             yield return new WaitForSeconds(board.flipDuration);
 
-            Assert.AreEqual(playerTileState, board.tiles[player.logicalPosition[0], player.logicalPosition[1]]
+            Assert.AreEqual(playerTileState, board.tiles[player.LogicalPosition[0], player.LogicalPosition[1]]
                 .GetComponent<Tile>().State, "Player tile state changed when flipping");
 
-            Assert.AreNotEqual(neighborTileState, board.tiles[player.logicalPosition[0], player.logicalPosition[1] + 1]
+            Assert.AreNotEqual(neighborTileState, board.tiles[player.LogicalPosition[0], player.LogicalPosition[1] + 1]
                 .GetComponent<Tile>().State, "Neighbor tile did not flip");
             
         }
@@ -95,23 +95,23 @@ namespace Tests
             for (int i = 0; i < 3; i++)
             {
                 player.Move(Direction.South);
-                yield return new WaitForSeconds(player.moveDuration);
+                yield return new WaitForSeconds(player.MoveDuration);
             }
 
-            var playerTileState = board.tiles[player.logicalPosition[0], player.logicalPosition[1]]
+            var playerTileState = board.tiles[player.LogicalPosition[0], player.LogicalPosition[1]]
                 .GetComponent<Tile>().State;
 
-            var neighborTileState = board.tiles[player.logicalPosition[0] + 1, player.logicalPosition[1]]
+            var neighborTileState = board.tiles[player.LogicalPosition[0] + 1, player.LogicalPosition[1]]
                 .GetComponent<Tile>().State;
             
-            yield return new WaitForSeconds(board.tiles[0,0].GetComponent<Tile>().stateChangeDuration);
+            yield return new WaitForSeconds(board.tiles[0,0].GetComponent<Tile>().StateChangeDuration);
             board.Flip();
             yield return new WaitForSeconds(board.flipDuration);
 
-            Assert.AreEqual(playerTileState, board.tiles[player.logicalPosition[0], player.logicalPosition[1]]
+            Assert.AreEqual(playerTileState, board.tiles[player.LogicalPosition[0], player.LogicalPosition[1]]
                 .GetComponent<Tile>().State, "Player tile state changed when flipping");
 
-            Assert.AreNotEqual(neighborTileState, board.tiles[player.logicalPosition[0] + 1, player.logicalPosition[1]]
+            Assert.AreNotEqual(neighborTileState, board.tiles[player.LogicalPosition[0] + 1, player.LogicalPosition[1]]
                 .GetComponent<Tile>().State, "Neighbor tile did not flip");
         }
 
@@ -126,10 +126,10 @@ namespace Tests
             var player = root.GetComponentInChildren<Bear>();
             Assert.NotNull(player, "No player found");
 
-            var playerTileState = board.tiles[player.logicalPosition[0], player.logicalPosition[1]]
+            var playerTileState = board.tiles[player.LogicalPosition[0], player.LogicalPosition[1]]
                 .GetComponent<Tile>().State;
 
-            var neighborTileState = board.tiles[player.logicalPosition[0], player.logicalPosition[1] + 1]
+            var neighborTileState = board.tiles[player.LogicalPosition[0], player.LogicalPosition[1] + 1]
                 .GetComponent<Tile>().State;
 
             board.Flip();
@@ -137,10 +137,10 @@ namespace Tests
             board.Flip();
             yield return new WaitForSeconds(board.flipDuration);
 
-            Assert.AreEqual(playerTileState, board.tiles[player.logicalPosition[0], player.logicalPosition[1]]
+            Assert.AreEqual(playerTileState, board.tiles[player.LogicalPosition[0], player.LogicalPosition[1]]
                 .GetComponent<Tile>().State, "Player tile state changed when flipping");
 
-            Assert.AreEqual(neighborTileState, board.tiles[player.logicalPosition[0], player.logicalPosition[1] + 1]
+            Assert.AreEqual(neighborTileState, board.tiles[player.LogicalPosition[0], player.LogicalPosition[1] + 1]
                 .GetComponent<Tile>().State, "Neighbor tile did not flip");
         }
 

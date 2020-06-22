@@ -15,8 +15,8 @@ namespace Tests {
             root = GameObject.Instantiate(
                 (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/LevelGameObjects.prefab", typeof(GameObject))
                 );
-            root.GetComponentInChildren<GameManager>().test = true;
-            root.GetComponentInChildren<GameManager>().testLevel = level;
+            root.GetComponentInChildren<GameManager>().Test = true;
+            root.GetComponentInChildren<GameManager>().TestLevel = level;
             yield return null;
         }
 

@@ -1,7 +1,7 @@
 {
     "name": "AnimationStates",
     "references": [
-        "GUID:dcdbdbd8adc9f0745bdee8780dc61409"
+        "Level"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -24,7 +24,7 @@ public class Board : MonoBehaviour
     /// <summary>
     /// Reference to the game manager
     /// </summary>
-    public GameObject gameManager;
+    public GameObject GameManager;
 
     /// <summary>
     /// Width x Height
@@ -89,11 +89,6 @@ public class Board : MonoBehaviour
     private int _messageIndex = 0;
 
     /// <summary>
-    /// Event of the player touching an orb
-    /// </summary>
-    public UnityEvent touchOrb;
-
-    /// <summary>
     /// Dictionary converting directions to vectors of logical positions
     /// </summary>
     /// <value>4 cardinal directions</value>
@@ -120,6 +115,11 @@ public class Board : MonoBehaviour
     /// Duration of travel when a flip is performed
     /// </summary>
     public float flipDuration;
+
+        /// <summary>
+    /// Event of the player touching an orb
+    /// </summary>
+    public UnityEvent TouchOrb;
 
     /// <summary>
     /// Flag to know if the board is flipping
@@ -148,13 +148,13 @@ public class Board : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        var gm = gameManager.GetComponent<GameManager>();
-        bearPrefab = gm.bearPrefab;
-        orbPrefab = gm.orbPrefab;
-        tilePrefab = gm.tilePrefab;
-        orbCountUI = gm.orbCountUI;
-        orbMessageUI = gm.orbMessageUI;
-        pauseMenuUI = gm.pauseMenuUI;
+        var gm = GameManager.GetComponent<GameManager>();
+        bearPrefab = gm.BearPrefab;
+        orbPrefab = gm.OrbPrefab;
+        tilePrefab = gm.TilePrefab;
+        orbCountUI = gm.OrbCountUI;
+        orbMessageUI = gm.OrbMessageUI;
+        pauseMenuUI = gm.PauseMenuUI;
     }
 
     /// <summary>
@@ -473,7 +473,7 @@ public class Board : MonoBehaviour
     /// <param name="performedMoveDirection">Direction taken by the player</param>
     public void ActOnPreviousTile(Direction performedMoveDirection)
     {
-        var previousLogicalPosition = player.GetComponent<Bear>().logicalPosition
+        var previousLogicalPosition = player.GetComponent<Bear>().LogicalPosition
             - logicalDirections[performedMoveDirection];
         
         // check if a tile needs to be destroyed because of a flip
@@ -498,7 +498,7 @@ public class Board : MonoBehaviour
 
         float speed = flipDistance / flipDuration;
 
-        _flipCoroutine = gameManager.GetComponent<GameManager>().navigator.Flip(
+        _flipCoroutine = GameManager.GetComponent<GameManager>().navigator.Flip(
             flipDuration, speed, this,
             () => _flipping = true,
             () => {

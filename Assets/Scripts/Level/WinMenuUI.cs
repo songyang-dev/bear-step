@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class WinMenuUI : MonoBehaviour
 {
 
-    public GameObject gameManager;
+    public GameObject GameManager;
 
     private GameObject _winMenu;
 
@@ -14,9 +14,9 @@ public class WinMenuUI : MonoBehaviour
 
     private void Start()
     {
-        GameManager gm = gameManager.GetComponent<GameManager>();
-        _winMenu = gm.winMenuUI;
-        _nextLevelButton = gm.nextLevelButton;
+        GameManager gm = GameManager.GetComponent<GameManager>();
+        _winMenu = gm.WinMenuUI;
+        _nextLevelButton = gm.NextLevelButton;
 
         ChangeNextLevelText();
     }

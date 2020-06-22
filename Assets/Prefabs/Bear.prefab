@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5286520870397169449}
   - component: {fileID: 8683676615463433913}
   - component: {fileID: 800081202199837904}
-  - component: {fileID: 4542812072791432218}
+  - component: {fileID: 6264715763665422867}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -95,7 +95,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4542812072791432218
+--- !u!114 &6264715763665422867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,9 +104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3560112177816658897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 980b6803771d9414d88443d069e86762, type: 3}
+  m_Script: {fileID: 11500000, guid: b8271df0c7a45154484276aeaf844632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDuration: 0.5
-  moveDistance: 1
-  logicalPosition: {x: 0, y: 0}
+  MoveDuration: 0.5
+  MoveDistance: 1
+  LogicalPosition: {x: 0, y: 0}

@@ -10,7 +10,7 @@ public class OrbCountUI : MonoBehaviour
 
     private int currentCount;
 
-    public bool hasWon = false;
+    public bool HasWon = false;
 
     public void InitiateCount(int count)
     {
@@ -24,7 +24,7 @@ public class OrbCountUI : MonoBehaviour
         this.currentCount++;
         ChangeDisplay();
 
-        if (totalCount == currentCount) hasWon = true;
+        if (totalCount == currentCount) HasWon = true;
     }
 
     private void ChangeDisplay()

@@ -1,7 +1,7 @@
 {
     "name": "Menu",
     "references": [
-        "GUID:e0642c152306ba342b515816412b21a6"
+        "GameWide"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

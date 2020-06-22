@@ -27,12 +27,12 @@ public class Bear : MonoBehaviour
     /// <summary>
     /// Duration taken by the player to move from one tile to the next
     /// </summary>
-    public float moveDuration;
+    public float MoveDuration;
 
     /// <summary>
     /// Distance per player move, usually one
     /// </summary>
-    public float moveDistance;
+    public float MoveDistance;
 
     /// <summary>
     /// Reference to the coroutine of move
@@ -48,7 +48,7 @@ public class Bear : MonoBehaviour
     /// Position of the bear in game logic (read only)
     /// </summary>
     /// <returns></returns>
-    public Vector2Int logicalPosition = new Vector2Int();
+    public Vector2Int LogicalPosition = new Vector2Int();
 
     private GameManager gameManager;
 
@@ -58,7 +58,7 @@ public class Bear : MonoBehaviour
     private void Awake()
     {
         board = this.GetComponentInParent<Board>();
-        gameManager = board.gameManager.GetComponent<GameManager>();
+        gameManager = board.GameManager.GetComponent<GameManager>();
         UpdateBoardPosition();
     }
 
@@ -67,7 +67,7 @@ public class Bear : MonoBehaviour
     /// </summary>
     private void UpdateBoardPosition()
     {
-        logicalPosition = board.ToLogicalCoordinates(this.transform.position);
+        LogicalPosition = board.ToLogicalCoordinates(this.transform.position);
     }
 
     /// <summary>
@@ -80,14 +80,14 @@ public class Bear : MonoBehaviour
         if (_going != null) return;
 
         // check if the given direction would be legal
-        if (!board.IsLegalMove(this.logicalPosition, direction)) return;
+        if (!board.IsLegalMove(this.LogicalPosition, direction)) return;
 
         
         var destination = this.transform.position + directions[direction];
 
-        float speed = moveDistance / moveDuration;
+        float speed = MoveDistance / MoveDuration;
 
-        _movingCoroutine = gameManager.navigator.PlayerMove(moveDuration, speed, destination, this.transform,
+        _movingCoroutine = gameManager.navigator.PlayerMove(MoveDuration, speed, destination, this.transform,
             () => {_going = direction;}, // before
             () =>
             {

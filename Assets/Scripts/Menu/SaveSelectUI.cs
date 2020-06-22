@@ -31,7 +31,8 @@ public class SaveSelectUI : MonoBehaviour
     /// <param name="saveName"></param>
     void PresentSaveFileButton(int buttonNumber, string saveName)
     {
-        var button = transform.Find($"Save {buttonNumber}").gameObject;
+        var button = transform.Find($"Save Files").gameObject
+            .transform.Find($"Save {buttonNumber}").gameObject;
         var text = button.GetComponentInChildren<Text>();
 
         // no existing save file for this button

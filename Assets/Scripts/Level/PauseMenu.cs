@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// Reference to the game manager
     /// </summary>
-    public GameObject gameManager;
+    public GameObject GameManager;
 
     /// <summary>
     /// Reference to the pause menu panel
@@ -39,10 +39,10 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        var gm = gameManager.GetComponent<GameManager>();
-        this.pauseMenuUI = gm.pauseMenuUI;
-        this.levelScene = gm.levelScene;
-        this.menuScene = gm.menuScene;
+        var gm = GameManager.GetComponent<GameManager>();
+        this.pauseMenuUI = gm.PauseMenuUI;
+        this.levelScene = gm.LevelScene;
+        this.menuScene = gm.MenuScene;
     }
 
     public void Pause(InputAction.CallbackContext context)

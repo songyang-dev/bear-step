@@ -12,32 +12,32 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Name of the level scene
     /// </summary>
-    public string levelScene;
+    public string LevelScene;
 
     /// <summary>
     /// Name of the menu scene
     /// </summary>
-    public string menuScene;
+    public string MenuScene;
 
     /// <summary>
     /// Reference to the scene's board
     /// </summary>
-    public GameObject board;
+    public GameObject Board;
 
     /// <summary>
     /// Reference to the scene's camera
     /// </summary>
-    public GameObject cam;
+    public GameObject Cam;
 
     /// <summary>
     /// Whether the scene is running as a test
     /// </summary>
-    public bool test;
+    public bool Test;
 
     /// <summary>
     /// Path to the test level
     /// </summary>
-    public string testLevel;
+    public string TestLevel;
     
     /// <summary>
     /// Navigator module of the scene
@@ -47,52 +47,52 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Prefab of the bear
     /// </summary>
-    public GameObject bearPrefab;
+    public GameObject BearPrefab;
 
     /// <summary>
     /// Prefab of the orb
     /// </summary>
-    public GameObject orbPrefab;
+    public GameObject OrbPrefab;
 
     /// <summary>
     /// Prefab of the tile
     /// </summary>
-    public GameObject tilePrefab;
+    public GameObject TilePrefab;
 
     /// <summary>
     /// Reference to the orb message animator
     /// </summary>
-    public Animator orbMessageUIAnimator;
+    public Animator OrbMessageUIAnimator;
 
     /// <summary>
     /// Reference to the orb count UI
     /// </summary>
-    public GameObject orbCountUI;
+    public GameObject OrbCountUI;
 
     /// <summary>
     /// Reference to the orb message UI
     /// </summary>
-    public GameObject orbMessageUI;
+    public GameObject OrbMessageUI;
     
     /// <summary>
     /// Reference to the panel of the pause menu canvas
     /// </summary>
-    public GameObject pauseMenuUI;
+    public GameObject PauseMenuUI;
     
     /// <summary>
     /// Reference to the panel of the win menu canvas
     /// </summary>
-    public GameObject winMenuUI;
+    public GameObject WinMenuUI;
 
     /// <summary>
     /// Reference to the button of "Next Level"
     /// </summary>
-    public GameObject nextLevelButton;
+    public GameObject NextLevelButton;
 
     /// <summary>
     /// Event of winning the level
     /// </summary>
-    public UnityEvent winLevel;
+    public UnityEvent WinLevel;
     
 
     /// <summary>
@@ -107,9 +107,9 @@ public class GameManager : MonoBehaviour
     {
         navigator = new Navigator(this);
 
-        if (test) {
+        if (Test) {
             new PlayerProgress("test");
-            Level(testLevel);
+            Level(TestLevel);
         }
         else {
             Level(PlayerProgress.CurrentPlayer.GetCurrentLevelName());
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
     /// <param name="json">Serialized json class of the level</param>
     private void SetUpBoard(JSONLevel json)
     {
-        board.GetComponent<Board>().SetUp(json);
+        Board.GetComponent<Board>().SetUp(json);
     }
 
     /// <summary>
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void SetUpCamera()
     {
-        cam.GetComponent<CameraController>().SetUp();
+        Cam.GetComponent<CameraController>().SetUp();
     }
 
     /// <summary>
@@ -155,6 +155,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TearDown()
     {
-        board.GetComponent<Board>().TearDown();
+        Board.GetComponent<Board>().TearDown();
     }
 }

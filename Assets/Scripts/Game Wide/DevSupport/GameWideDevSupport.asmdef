@@ -1,8 +1,7 @@
 {
-    "name": "Level",
+    "name": "GameWideDevSupport",
     "references": [
-        "Unity.InputSystem",
-        "GameWide"
+        "LevelDevSupport"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

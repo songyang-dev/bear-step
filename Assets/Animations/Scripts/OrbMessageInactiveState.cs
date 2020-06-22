@@ -17,12 +17,12 @@ public class OrbMessageInactiveState : StateMachineBehaviour
         // no more messages left, check for win condition
         else
         {
-            var gm = orbMessageUI.gameManager.GetComponent<GameManager>();
-            var orbCountUI = gm.orbCountUI.GetComponent<OrbCountUI>();
+            var gm = orbMessageUI.GameManager.GetComponent<GameManager>();
+            var orbCountUI = gm.OrbCountUI.GetComponent<OrbCountUI>();
 
-            if (orbCountUI.hasWon)
+            if (orbCountUI.HasWon)
             {
-                gm.winLevel.Invoke();
+                gm.WinLevel.Invoke();
             }
         }
     }

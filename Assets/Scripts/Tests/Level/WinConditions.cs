@@ -24,7 +24,7 @@ namespace Tests
 
             Assert.False(winMenu.gameObject.activeInHierarchy);
 
-            gm.winLevel.Invoke();
+            gm.WinLevel.Invoke();
 
             Assert.True(winMenu.gameObject.activeInHierarchy);
         }

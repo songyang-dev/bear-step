@@ -120,12 +120,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -157,10 +157,10 @@ GameObject:
   - component: {fileID: 209759713174653463}
   - component: {fileID: 209759713174653467}
   - component: {fileID: 209759713174653464}
-  - component: {fileID: 209759713174653465}
   - component: {fileID: 209759713174653462}
+  - component: {fileID: 3875939024335726650}
   m_Layer: 5
-  m_Name: Orb message
+  m_Name: Orb Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,19 +226,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Orb message
---- !u!114 &209759713174653465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209759713174653460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3032f2dacb46b5647a736c50720ebbf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 209759713306990166}
 --- !u!95 &209759713174653462
 Animator:
   serializedVersion: 3
@@ -249,7 +236,7 @@ Animator:
   m_GameObject: {fileID: 209759713174653460}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b4bf89bbf4b95664bb93fe51c9db9d5a, type: 2}
+  m_Controller: {fileID: 9100000, guid: b26067615bb33564897e4a09730eb642, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -258,6 +245,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3875939024335726650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209759713174653460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d804290fd0dc70141bda37d677569601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 209759713306990166}
 --- !u!1 &209759713306990166
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,8 +267,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209759713306990171}
-  - component: {fileID: 209759713306990168}
   - component: {fileID: 209759713306990169}
+  - component: {fileID: 4535733343399895686}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -290,50 +290,6 @@ Transform:
   m_Father: {fileID: 209759715065034550}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &209759713306990168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209759713306990166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012f1a400a8b1d547a93cc570014da64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelScene: Level
-  menuScene: Main Menu
-  board: {fileID: 209759714267358916}
-  cam: {fileID: 209759714762674641}
-  test: 1
-  testLevel: Campaign/Tutorial
-  bearPrefab: {fileID: 3560112177816658897, guid: ba0bfb836988ba14f89dd8912b7e0212,
-    type: 3}
-  orbPrefab: {fileID: 118317355310076960, guid: 1dd05425e5b089044bca812b589e8ab6,
-    type: 3}
-  tilePrefab: {fileID: 2120793455244450866, guid: e012ed884888f2e46ba24f53d8e6c84e,
-    type: 3}
-  orbMessageUIAnimator: {fileID: 209759713174653462}
-  orbCountUI: {fileID: 209759713358945535}
-  orbMessageUI: {fileID: 209759713174653460}
-  pauseMenuUI: {fileID: 1489000243828148256}
-  winMenuUI: {fileID: 3834511324174522622}
-  nextLevelButton: {fileID: 3326195370944084162}
-  winLevel:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4782858206816445479}
-        m_MethodName: Show
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &209759713306990169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: a0f695eacc942e0428bac6943e601852,
+  m_Actions: {fileID: -944628639613478452, guid: 3f4288d8c7ff8184990bc8e71cfcce1f,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -362,12 +318,12 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 209759714267358919}
+      - m_Target: {fileID: 8049612413471012175}
         m_MethodName: MoveAllPlayers
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -377,12 +333,12 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 209759714762674642}
+      - m_Target: {fileID: 4495465267604325004}
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -392,12 +348,12 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 209759714762674642}
+      - m_Target: {fileID: 4495465267604325004}
         m_MethodName: Center
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -407,12 +363,12 @@ MonoBehaviour:
     m_ActionName: Player/Center[/Keyboard/c]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 209759714267358919}
+      - m_Target: {fileID: 8049612413471012175}
         m_MethodName: Flip
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -422,12 +378,12 @@ MonoBehaviour:
     m_ActionName: Player/Flip[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Pause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -437,12 +393,12 @@ MonoBehaviour:
     m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Resume
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -495,6 +451,50 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4535733343399895686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209759713306990166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5037d4e8dacefd542b4962b4041d8c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelScene: Level
+  MenuScene: Main Menu
+  Board: {fileID: 209759714267358916}
+  Cam: {fileID: 209759714762674641}
+  Test: 1
+  TestLevel: Campaign/Tutorial
+  BearPrefab: {fileID: 3560112177816658897, guid: 07b2794a9dd053e4ea95f0fe7cef46ad,
+    type: 3}
+  OrbPrefab: {fileID: 118317355310076960, guid: acdff0b77a84bb64f9814c0417f62321,
+    type: 3}
+  TilePrefab: {fileID: 2120793455244450866, guid: e8bd727306b436d44a3b2b0298a62f88,
+    type: 3}
+  OrbMessageUIAnimator: {fileID: 209759713174653462}
+  OrbCountUI: {fileID: 209759713358945535}
+  OrbMessageUI: {fileID: 209759713174653460}
+  PauseMenuUI: {fileID: 1489000243828148256}
+  WinMenuUI: {fileID: 3834511324174522622}
+  NextLevelButton: {fileID: 3326195370944084162}
+  WinLevel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3522143261724630972}
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &209759713358945535
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,9 +506,9 @@ GameObject:
   - component: {fileID: 209759713358945027}
   - component: {fileID: 209759713358945024}
   - component: {fileID: 209759713358945025}
-  - component: {fileID: 209759713358945534}
+  - component: {fileID: 5446436414289952809}
   m_Layer: 5
-  m_Name: Orb count text
+  m_Name: Orb Count Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Orb count
---- !u!114 &209759713358945534
+--- !u!114 &5446436414289952809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -583,10 +583,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759713358945535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f8d1d0a9530614b80edb3afb19c470, type: 3}
+  m_Script: {fileID: 11500000, guid: ef8a5a73ba8d60448a8c567340f6171a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasWon: 0
+  HasWon: 0
 --- !u!1 &209759714239830179
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209759714267358918}
-  - component: {fileID: 209759714267358919}
+  - component: {fileID: 8049612413471012175}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -719,7 +719,7 @@ Transform:
   m_Father: {fileID: 209759715065034550}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &209759714267358919
+--- !u!114 &8049612413471012175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -728,26 +728,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759714267358916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56df56da616c14846899fb5f6558c199, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e18ff316db9d3c4da0966e0eab02512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 209759713306990166}
-  touchOrb:
+  GameManager: {fileID: 209759713306990166}
+  flipDistance: 1
+  flipDuration: 1
+  TouchOrb:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 209759714267358919}
+      - m_Target: {fileID: 8049612413471012175}
         m_MethodName: DisplayOrbMessage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  flipDistance: 1
-  flipDuration: 1
 --- !u!1 &209759714411495723
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 209759714762674645}
   - component: {fileID: 209759714762674640}
   - component: {fileID: 209759714762674643}
-  - component: {fileID: 209759714762674642}
+  - component: {fileID: 4495465267604325004}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -924,7 +924,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209759714762674641}
   m_Enabled: 1
---- !u!114 &209759714762674642
+--- !u!114 &4495465267604325004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -933,13 +933,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 209759714762674641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c2887d852205b640ad285574d9ed2be, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ab090cdb9127144e97f77549c093f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.1800001, y: -1.86, z: -5.08}
-  rotation: {x: -37.233, y: 0, z: 0}
+  Offset: {x: 0.18, y: -1.86, z: -5.08}
+  Rotation: {x: -37.233, y: 0, z: 0}
   gameManager: {fileID: 209759713306990166}
-  speed: 3
+  Speed: 3
 --- !u!1 &209759714812377859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,12 +1183,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1639,12 +1639,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1769,12 +1769,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1792,7 +1792,7 @@ GameObject:
   - component: {fileID: 5351037346927190550}
   - component: {fileID: 3584878132678609870}
   - component: {fileID: 5936434960758807916}
-  - component: {fileID: 8630062044532185553}
+  - component: {fileID: 3053921580827420690}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -1880,7 +1880,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8630062044532185553
+--- !u!114 &3053921580827420690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1889,11 +1889,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3005395546033779974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d89a3fef42a55847b9fd8b19763fbf3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b2163f2377832641b18449a7c026459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsPaused: 0
-  gameManager: {fileID: 209759713306990166}
+  GameManager: {fileID: 209759713306990166}
 --- !u!1 &3326195370944084162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,12 +2013,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4782858206816445479}
+      - m_Target: {fileID: 3522143261724630972}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2113,7 +2113,7 @@ GameObject:
   - component: {fileID: 7665847304647215732}
   - component: {fileID: 7228842135736754761}
   - component: {fileID: 3141166088342058822}
-  - component: {fileID: 4782858206816445479}
+  - component: {fileID: 3522143261724630972}
   m_Layer: 5
   m_Name: Win Menu
   m_TagString: Untagged
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4782858206816445479
+--- !u!114 &3522143261724630972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2210,10 +2210,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4031309956313714127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d120ddb0bcb51c8429532be4638159fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e919ed09c876094cba4cd8996cb9caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 209759713306990166}
+  GameManager: {fileID: 209759713306990166}
 --- !u!1 &4844335338964894191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,12 +2646,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8630062044532185553}
+      - m_Target: {fileID: 3053921580827420690}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

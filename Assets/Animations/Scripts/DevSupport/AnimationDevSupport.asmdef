@@ -1,8 +1,7 @@
 {
-    "name": "Level",
+    "name": "AnimationScriptDevSupport",
     "references": [
-        "Unity.InputSystem",
-        "GameWide"
+        "AnimationStates"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

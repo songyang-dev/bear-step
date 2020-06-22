@@ -20,7 +20,7 @@ namespace Tests
             var initialPosition = tile.transform.position;
 
             tile.LowerTile();
-            yield return new WaitForSeconds(tile.stateChangeDuration);
+            yield return new WaitForSeconds(tile.StateChangeDuration);
 
             Assert.AreNotEqual(initialPosition, tile.transform.position, "Tile did not move");
             Assert.AreEqual(tile.tileStatePositions[TileState.Down], tile.transform.position, "Tile is not at the correct position");
@@ -34,7 +34,7 @@ namespace Tests
 
             var player = root.GetComponentInChildren<Bear>();
             var tiles = root.GetComponentInChildren<Board>().tiles;
-            var playerTile = tiles[player.logicalPosition[0], player.logicalPosition[1]];
+            var playerTile = tiles[player.LogicalPosition[0], player.LogicalPosition[1]];
 
             var board = root.GetComponentInChildren<Board>();
             
@@ -45,7 +45,7 @@ namespace Tests
 
             player.Move(Direction.East);
 
-            yield return new WaitForSeconds(player.moveDuration + 0.5f);
+            yield return new WaitForSeconds(player.MoveDuration + 0.5f);
             Assert.True(null == playerTile, "Tile remained");
         }
     }

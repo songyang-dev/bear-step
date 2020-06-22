@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class OrbMessageUI : MonoBehaviour
 {
-    public GameObject gameManager;
+    public GameObject GameManager;
 
     private Animator animationController;
 
@@ -13,7 +13,7 @@ public class OrbMessageUI : MonoBehaviour
 
     private void Awake()
     {
-        animationController = gameManager.GetComponent<GameManager>().orbMessageUIAnimator;
+        animationController = GameManager.GetComponent<GameManager>().OrbMessageUIAnimator;
     }
 
     /// <summary>

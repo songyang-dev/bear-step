@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 705507994}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -121,78 +121,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!108 &705507994 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 4558295407423596197, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
-    type: 3}
-  m_PrefabInstance: {fileID: 4558295406786253887}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4558295406786253887
+--- !u!1001 &1069120706
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499212, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499212, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4558295408574499213, guid: d8e0fc1e73a1bfe4fa32364f92dceebd,
+    - target: {fileID: 4558295408574499213, guid: 1135a4eeef97dd14fbac7b639bf111da,
         type: 3}
       propertyPath: m_Name
       value: MainMenuObjects
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d8e0fc1e73a1bfe4fa32364f92dceebd, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 1135a4eeef97dd14fbac7b639bf111da, type: 3}
