@@ -1,7 +1,8 @@
 {
     "name": "GameWideDevSupport",
     "references": [
-        "LevelDevSupport"
+        "LevelDevSupport",
+        "AnimationDevSupport"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

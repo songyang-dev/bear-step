@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5286520870397169449}
   - component: {fileID: 8683676615463433913}
   - component: {fileID: 800081202199837904}
-  - component: {fileID: 6264715763665422867}
+  - component: {fileID: 8120965176362916552}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -95,7 +95,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6264715763665422867
+--- !u!114 &8120965176362916552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,5 +1,5 @@
 {
-    "name": "AnimationScriptDevSupport",
+    "name": "AnimationDevSupport",
     "references": [
         "AnimationStates"
     ],

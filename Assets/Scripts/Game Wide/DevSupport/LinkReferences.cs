@@ -10,5 +10,6 @@ public class LinkReferences : Editor
     {
         LevelPrefabLinker.SetAllReferences();
         LevelAssetPrefabLinker.SetAllReferences();
+        AnimationSetter.SetAllAnimations();
     }
 }

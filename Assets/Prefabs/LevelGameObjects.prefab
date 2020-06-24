@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 209759713174653467}
   - component: {fileID: 209759713174653464}
   - component: {fileID: 209759713174653462}
-  - component: {fileID: 3875939024335726650}
+  - component: {fileID: 575660405289146026}
   m_Layer: 5
   m_Name: Orb Message
   m_TagString: Untagged
@@ -245,7 +245,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3875939024335726650
+--- !u!114 &575660405289146026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 209759713306990171}
   - component: {fileID: 209759713306990169}
-  - component: {fileID: 4535733343399895686}
+  - component: {fileID: 5765155358468400560}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8049612413471012175}
+      - m_Target: {fileID: 1980813135812835427}
         m_MethodName: MoveAllPlayers
         m_Mode: 0
         m_Arguments:
@@ -333,7 +333,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4495465267604325004}
+      - m_Target: {fileID: 4775828249116654940}
         m_MethodName: Move
         m_Mode: 0
         m_Arguments:
@@ -348,7 +348,7 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4495465267604325004}
+      - m_Target: {fileID: 4775828249116654940}
         m_MethodName: Center
         m_Mode: 0
         m_Arguments:
@@ -363,7 +363,7 @@ MonoBehaviour:
     m_ActionName: Player/Center[/Keyboard/c]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8049612413471012175}
+      - m_Target: {fileID: 1980813135812835427}
         m_MethodName: Flip
         m_Mode: 0
         m_Arguments:
@@ -378,7 +378,7 @@ MonoBehaviour:
     m_ActionName: Player/Flip[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Pause
         m_Mode: 0
         m_Arguments:
@@ -393,7 +393,7 @@ MonoBehaviour:
     m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Resume
         m_Mode: 0
         m_Arguments:
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4535733343399895686
+--- !u!114 &5765155358468400560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,7 +484,7 @@ MonoBehaviour:
   WinLevel:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3522143261724630972}
+      - m_Target: {fileID: 7502521068817311110}
         m_MethodName: Show
         m_Mode: 1
         m_Arguments:
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 209759713358945027}
   - component: {fileID: 209759713358945024}
   - component: {fileID: 209759713358945025}
-  - component: {fileID: 5446436414289952809}
+  - component: {fileID: 126472428639058157}
   m_Layer: 5
   m_Name: Orb Count Text
   m_TagString: Untagged
@@ -574,7 +574,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Orb count
---- !u!114 &5446436414289952809
+--- !u!114 &126472428639058157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209759714267358918}
-  - component: {fileID: 8049612413471012175}
+  - component: {fileID: 1980813135812835427}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -719,7 +719,7 @@ Transform:
   m_Father: {fileID: 209759715065034550}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8049612413471012175
+--- !u!114 &1980813135812835427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -737,7 +737,7 @@ MonoBehaviour:
   TouchOrb:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8049612413471012175}
+      - m_Target: {fileID: 1980813135812835427}
         m_MethodName: DisplayOrbMessage
         m_Mode: 1
         m_Arguments:
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 209759714762674645}
   - component: {fileID: 209759714762674640}
   - component: {fileID: 209759714762674643}
-  - component: {fileID: 4495465267604325004}
+  - component: {fileID: 4775828249116654940}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -924,7 +924,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209759714762674641}
   m_Enabled: 1
---- !u!114 &4495465267604325004
+--- !u!114 &4775828249116654940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Menu
         m_Mode: 1
         m_Arguments:
@@ -1769,7 +1769,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -1792,7 +1792,7 @@ GameObject:
   - component: {fileID: 5351037346927190550}
   - component: {fileID: 3584878132678609870}
   - component: {fileID: 5936434960758807916}
-  - component: {fileID: 3053921580827420690}
+  - component: {fileID: 4277931362021636734}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -1880,7 +1880,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3053921580827420690
+--- !u!114 &4277931362021636734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3522143261724630972}
+      - m_Target: {fileID: 7502521068817311110}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -2113,7 +2113,7 @@ GameObject:
   - component: {fileID: 7665847304647215732}
   - component: {fileID: 7228842135736754761}
   - component: {fileID: 3141166088342058822}
-  - component: {fileID: 3522143261724630972}
+  - component: {fileID: 7502521068817311110}
   m_Layer: 5
   m_Name: Win Menu
   m_TagString: Untagged
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3522143261724630972
+--- !u!114 &7502521068817311110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2646,7 +2646,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3053921580827420690}
+      - m_Target: {fileID: 4277931362021636734}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:

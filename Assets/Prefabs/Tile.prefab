@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2399820783024920670}
   - component: {fileID: 5669396135182453837}
   - component: {fileID: 469538456037229594}
-  - component: {fileID: 4806558118278440447}
+  - component: {fileID: 384140490215298133}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4806558118278440447
+--- !u!114 &384140490215298133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

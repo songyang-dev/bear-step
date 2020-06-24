@@ -10,7 +10,7 @@ public class AnimationSetter : Editor
     private static AnimatorController orbMessage;
 
     [MenuItem("Prefabs/Link Animations")]
-    static void SetAllAnimations()
+    public static void SetAllAnimations()
     {
         SetUp();
 

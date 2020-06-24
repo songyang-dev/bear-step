@@ -10,7 +10,7 @@ namespace Tests
     public class PausedBehaviours: LevelSceneSetUp
     {
         [UnityTest]
-        public IEnumerator MenuAppearance()
+        public IEnumerator MenuAppearsAndResumes()
         {
             yield return SetUp("Test/pool");
 
@@ -63,6 +63,38 @@ namespace Tests
             Assert.AreEqual("Main Menu", thisScene, "Scene did not change to Main Menu");
 
             MenuTearDown();
+        }
+
+        [UnityTest]
+        public IEnumerator Restart()
+        {
+            yield return SetUp("Campaign/Tutorial");
+
+            var pauseMenu = root.GetComponentInChildren<PauseMenu>();
+
+            // get the ui panel that is disabled by default
+            var menuObject = pauseMenu.transform.GetChild(0).gameObject; // assuming that it is the only child
+
+            // move the player
+            var player = root.GetComponentInChildren<Bear>();
+            player.Move(Direction.East);
+
+            yield return new WaitForSeconds(player.MoveDuration * 2);
+
+            // player position to check later
+            var position = player.LogicalPosition;
+
+            Assert.False(pauseMenu.GameIsPaused, "Game is paused initially");
+            
+            pauseMenu.Pause();
+            yield return null;
+
+            pauseMenu.Restart();
+            yield return null;
+
+            var newPosition =  GameObject.Find("Bear(Clone)").GetComponent<Bear>().LogicalPosition;
+            Assert.AreNotEqual(position, newPosition, "Restarting did not put the player back.");
+
         }
 
         private void MenuTearDown()
