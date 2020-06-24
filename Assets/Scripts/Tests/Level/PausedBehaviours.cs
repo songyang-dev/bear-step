@@ -91,6 +91,8 @@ namespace Tests
 
             pauseMenu.Restart();
             yield return null;
+            // for clean up
+            root = GameObject.Find("LevelGameObjects");
 
             var newPosition =  GameObject.Find("Bear(Clone)").GetComponent<Bear>().LogicalPosition;
             Assert.AreNotEqual(position, newPosition, "Restarting did not put the player back.");
