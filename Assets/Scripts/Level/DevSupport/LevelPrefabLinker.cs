@@ -6,6 +6,9 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+/// <summary>
+/// Links the objects in the level scene with correct references
+/// </summary>
 public class LevelPrefabLinker : Editor
 {
     private const string levelPrefabPath = "Assets/Prefabs/LevelGameObjects.prefab";

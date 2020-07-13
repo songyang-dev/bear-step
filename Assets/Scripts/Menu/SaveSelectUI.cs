@@ -31,6 +31,16 @@ public class SaveSelectUI : MonoBehaviour
     private InputField newSaveName;
 
     /// <summary>
+    /// Reference to the window displayed when user wants to delete a save file
+    /// </summary>
+    private GameObject confirmDeletePrompt;
+
+    /// <summary>
+    /// Reference to the display when an invalid name is entered
+    /// </summary>
+    private GameObject invalidNameDisplay;
+
+    /// <summary>
     /// Name of the save file in slot 1
     /// </summary>
     private string save1;
@@ -69,31 +79,37 @@ public class SaveSelectUI : MonoBehaviour
         newSaveFile = mainMenu.NewSaveFile;
         saveFilesExisting = mainMenu.SaveFilesExisting;
         newSaveName = mainMenu.NewSaveName;
+        confirmDeletePrompt = mainMenu.ConfirmDeletePrompt;
+        invalidNameDisplay = mainMenu.InvalidNameDisplay;
     }
 
     /// <summary>
     /// Configures the display of a save file button
     /// </summary>
-    /// <param name="buttonNumber"></param>
-    /// <param name="saveName"></param>
+    /// <param name="buttonNumber">Number of the save file button</param>
+    /// <param name="saveName">Name of the player, empty is nonexistent</param>
     void PresentSaveFileButton(int buttonNumber, string saveName)
     {
         var button = transform.Find($"Save Files").gameObject
             .transform.Find($"Save {buttonNumber}").gameObject;
-        var text = button.GetComponentInChildren<Text>();
+        var text = button.transform.Find("Text").GetComponent<Text>();
+        var deleteButton = button.transform.Find("Delete Button").gameObject;
 
         // no existing save file for this button
         if (saveName.Equals(""))
         {
             text.text = "New Save";
+            deleteButton.SetActive(false);
         }
         // there is an existing save file
         else
         {
             text.text = saveName;
+            deleteButton.SetActive(true);
         }
     }
 
+    #region Button listeners
     /// <summary>
     /// Listener to save button 1
     /// </summary>
@@ -120,6 +136,22 @@ public class SaveSelectUI : MonoBehaviour
         if (save3.Equals("")) CreateNewSave(3);
         else StartLevel(save3);
     }
+
+    public void DeleteFile1()
+    {
+        DeleteSaveFile(1);
+    }
+
+    public void DeleteFile2()
+    {
+        DeleteSaveFile(2);
+    }
+
+    public void DeleteFile3()
+    {
+        DeleteSaveFile(3);
+    }
+    #endregion
 
     /// <summary>
     /// Changes to the screen for creating new save files
@@ -153,6 +185,8 @@ public class SaveSelectUI : MonoBehaviour
                 break;
         }
 
+        invalidNameDisplay.SetActive(false);
+
         StartLevel(input);
     }
 
@@ -166,7 +200,7 @@ public class SaveSelectUI : MonoBehaviour
         // initiates a player progress
         new PlayerProgress(name);
 
-        // attach this to the save slot
+        // attach this to the selected save slot
         var slot = $"save{editSaveSlot}";
         PlayerPrefs.SetString(slot, name);
 
@@ -180,6 +214,41 @@ public class SaveSelectUI : MonoBehaviour
     /// </summary>
     private void PromptInvalidName()
     {
-        throw new NotImplementedException();
+        invalidNameDisplay.SetActive(true);
+    }
+
+    /// <summary>
+    /// Deletes the given save file after prompting the user for confirmation
+    /// </summary>
+    /// <param name="slotNumber">Number of the save slot</param>
+    private void DeleteSaveFile(int slotNumber)
+    {
+        string player;
+        switch (slotNumber)
+        {
+            case 1:
+                player = save1;
+                save1 = "";
+                PlayerPrefs.SetString("save1", "");
+                break;
+            case 2:
+                player = save2;
+                save2 = "";
+                PlayerPrefs.SetString("save2", "");
+                break;
+            case 3:
+                player = save3;
+                save3 = "";
+                PlayerPrefs.SetString("save3", "");
+                break;
+            default:
+                throw new Exception($"Slot {slotNumber} does not exist");
+        }
+
+        var progress = new PlayerProgress(player);
+        progress.RemoveProgress();
+
+        // empty the button of this save file
+        PresentSaveFileButton(slotNumber, "");
     }
 }

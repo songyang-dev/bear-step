@@ -24,7 +24,7 @@ public class PlayerProgress
     public static PlayerProgress CurrentPlayer;
 
     /// <summary>
-    /// Initiates a new player progress
+    /// Initiates a new player progress or gets an existing one
     /// </summary>
     /// <param name="name">Name of the player/save file</param>
     public PlayerProgress(string name)

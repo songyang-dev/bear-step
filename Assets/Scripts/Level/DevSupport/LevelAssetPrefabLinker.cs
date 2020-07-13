@@ -1,6 +1,9 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Links the assets in the level scene with correct references
+/// </summary>
 public class LevelAssetPrefabLinker : Editor
 {
     private const string bearPrefabPath = "Assets/Prefabs/Bear.prefab";
