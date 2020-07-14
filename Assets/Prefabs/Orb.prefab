@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2601264356505774289}
   - component: {fileID: 3220720047208678810}
   - component: {fileID: 8559815514520437555}
-  - component: {fileID: 7410897138781295167}
+  - component: {fileID: 7337111937444953491}
   m_Layer: 0
   m_Name: Orb
   m_TagString: Untagged
@@ -94,7 +94,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7410897138781295167
+--- !u!114 &7337111937444953491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
