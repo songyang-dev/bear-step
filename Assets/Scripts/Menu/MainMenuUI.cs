@@ -16,6 +16,11 @@ public class MainMenuUI : MonoBehaviour
     public GameObject SaveFileSelect;
     
     /// <summary>
+    /// Reference to the save file script
+    /// </summary>
+    private SaveSelectUI saveFileScript;
+
+    /// <summary>
     /// Reference to the save file creation screen
     /// </summary>
     public GameObject NewSaveFile;
@@ -39,6 +44,11 @@ public class MainMenuUI : MonoBehaviour
     /// Reference to the display when an invalid name is entered
     /// </summary>
     public GameObject InvalidNameDisplay;
+
+    private void Start()
+    {
+        saveFileScript = SaveFileSelect.GetComponent<SaveSelectUI>();
+    }
 
     /// <summary>
     /// Clicks the play button on the menu
@@ -80,6 +90,8 @@ public class MainMenuUI : MonoBehaviour
     {
         Main.SetActive(true);
         SaveFileSelect.SetActive(false);
+
+        saveFileScript.ExitNewSaveScreen();
     }
 
 }

@@ -167,6 +167,15 @@ public class SaveSelectUI : MonoBehaviour
     }
 
     /// <summary>
+    /// Changes to the screen of presenting save files after clicking "back"
+    /// </summary>
+    public void ExitNewSaveScreen()
+    {
+        newSaveFile.SetActive(false);
+        saveFilesExisting.SetActive(true);
+    }
+
+    /// <summary>
     /// User clicks the OK button next to the input field.
     /// Sets up the player save file and begins the level.
     /// </summary>
