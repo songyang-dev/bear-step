@@ -34,7 +34,7 @@ To contribute, if you are not an invited collaborator, fork this repo and make y
 * Song Yang - *Initial work on the game jam idea and this repository* - [XsongyangX](https://github.com/XsongyangX/)
 
 # License
-This project is under the MIT License.
+This project is under a modified version of the MIT License.
 
 # Acknowledgements
 * Special thanks to original game jam teammates: [Diyuse](https://github.com/Diyuse/), [zcguan](https://github.com/zcguan), [JTMG19](https://github.com/JTMG19), [Angelalalula](https://github.com/Angelalalula)
