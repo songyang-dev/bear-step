@@ -7,7 +7,7 @@ These instructions will get you the source code necessary to build and develop t
 ## Prerequisities
 These software need to be installed:
 * Unity Hub, newest version possible
-* Unity, preferably 2019.4.5f1
+* Unity, preferably 2019.4.6f1
   * Special packages to have: Input System (version 1.0.0 at least) and Test Runner (verified version at least)
 * IDE that supports C# and Unity, e.g. Visual Studio, Visual Studio Code (recommended)
   * The necessary extensions and add-ons for that IDE: C# and Unity addons (recommended)
